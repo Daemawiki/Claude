@@ -24,13 +24,17 @@ public class FlowContextImpl implements FlowContext {
     @SuppressWarnings("resource")
     @Override
     public Mono<Flow> getFlow(final String documentId) {
-        return Mono.just(this.flows.get(documentId))
-                .switchIfEmpty(Mono.defer(() ->
-                        documentRepository.findById(documentId)
-                                .switchIfEmpty(Mono.error(() -> CustomExceptionFactory.notFound("document not found.")))
-                                .map(it -> new FlowImpl(documentId, this)
-                                        .withCreateElements(it.content().lines()))
-                ));
+        return Mono.justOrEmpty(this.flows.get(documentId))
+                .switchIfEmpty(createFlowByDocumentId(documentId));
+    }
+
+    private Mono<Flow> createFlowByDocumentId(String documentId) {
+        return Mono.defer(() ->
+                documentRepository.findById(documentId)
+                        .switchIfEmpty(Mono.error(() -> CustomExceptionFactory.notFound("document not found.")))
+                        .map(it -> new FlowImpl(documentId, this)
+                                .withCreateElements(it.content().lines()))
+        );
     }
 
     @RequiredArgsConstructor
