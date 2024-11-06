@@ -49,7 +49,7 @@ public class FlowContextImpl implements FlowContext {
         private boolean isClosed = false;
 
         @Getter
-        private final List<ElementImpl> elements = Collections.synchronizedList(new ArrayList<>());
+        private final List<Element> elements = Collections.synchronizedList(new ArrayList<>());
 
         @Override
         public void createElement(final String content) {
