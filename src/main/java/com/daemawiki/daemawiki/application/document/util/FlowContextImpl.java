@@ -68,7 +68,7 @@ public class FlowContextImpl implements FlowContext {
                 this.elements.add(
                         this.elements.indexOf(
                                 this.elements.stream()
-                                        .filter(it -> it.id == lastElementId)
+                                        .filter(it -> it.id() == lastElementId)
                                         .findFirst()
                                         .orElseThrow(() -> new IllegalArgumentException("Element not found"))
                         ),
