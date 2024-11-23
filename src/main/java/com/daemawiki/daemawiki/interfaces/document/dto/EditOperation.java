@@ -19,6 +19,6 @@ public record EditOperation(
     }
 
     public enum OperationType {
-        INSERT //, DELETE
+        INSERT, UPDATE
     }
 }

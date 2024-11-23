@@ -9,8 +9,9 @@ class DocumentOperationHandler {
     public static Mono<Void> handleOperation(EditOperation operation, FlowContext.Flow flow) {
         return Mono.defer(() -> {
             try {
-                if (operation.type().equals(EditOperation.OperationType.INSERT)) {
-                    handleInsert(operation, flow);
+                switch (operation.type()) {
+                    case INSERT -> handleInsert(operation, flow);
+                    case UPDATE -> handleUpdate(operation, flow);
                 }
                 return Mono.empty();
             } catch (Exception e) {
@@ -21,5 +22,9 @@ class DocumentOperationHandler {
 
     private static void handleInsert(EditOperation operation, FlowContext.Flow flow) {
         flow.createElement(operation.lastElementId(), operation.content());
+    }
+
+    private static void handleUpdate(EditOperation operation, FlowContext.Flow flow) {
+        flow.updateElement(operation.lastElementId(), operation.content());
     }
 }
