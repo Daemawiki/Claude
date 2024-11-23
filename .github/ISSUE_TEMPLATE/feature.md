@@ -1,6 +1,6 @@
 ---
-name: 새 기능 추가 이슈 템플릿.
-about: issue template
+name: feature
+about: 새로운 기능 추가 이슈 템플릿
 title: ''
 labels: ''
 assignees: ori0o0p
