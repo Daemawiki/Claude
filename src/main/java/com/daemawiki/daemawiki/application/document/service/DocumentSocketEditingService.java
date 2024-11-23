@@ -44,6 +44,7 @@ class DocumentSocketEditingService implements DocumentSocketEditingUseCase {
                 });
     }
 
+    @Override
     public Flux<EditOperation> subscribeToDocument(SubscribeRequest request) {
         return verifyEditPermission(request.documentId())
                 .flatMapMany(editor -> getSinkForDocument(request.documentId()).asFlux());
