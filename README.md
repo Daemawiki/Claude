@@ -10,9 +10,8 @@
   <a href="https://github.com/daemawiki/Claude/stargazers"><img src="https://img.shields.io/github/stars/daemawiki/Claude?color=84CC16&logo=github" alt="Github star" /></a>
   <a href="https://daemawiki.xquare.app"><img src="https://img.shields.io/badge/Website-daemawiki-192A4E?color=84CC16" alt="DAEMAWIKI WEBSITE: hxxps://daemawiki.xquare.app/"></a>
 
-  <img src="https://github.com/user-attachments/assets/f7918efc-2d91-4de5-bf4a-9ec86a44cfa0" alt="DAEMAWIKI IMAGE" />
+  <img src="https://github.com/user-attachments/assets/d68d32b7-785b-4e32-bf42-fc6357c5c677" alt="DAEMAWIKI IMAGE" />
 </div>
-
 
 ## 🛠️ Getting Started
 
