@@ -5,7 +5,6 @@ spring:
   data:
     mongodb:
       uri: ${MONGO_URI}
-      database: ${MONGO_DB}
       auto-index-creation: true
 
     redis:
