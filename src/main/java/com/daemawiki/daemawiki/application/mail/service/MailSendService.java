@@ -2,6 +2,7 @@ package com.daemawiki.daemawiki.application.mail.service;
 
 import com.daemawiki.daemawiki.application.mail.event.model.MailSendEvent;
 import com.daemawiki.daemawiki.application.mail.usecase.MailSendUseCase;
+import com.daemawiki.daemawiki.common.error.exception.CustomExceptionFactory;
 import com.daemawiki.daemawiki.common.util.random.AuthCodeGenerator;
 import com.daemawiki.daemawiki.domain.mail.model.AuthCodeModel;
 import com.daemawiki.daemawiki.domain.mail.model.type.MailType;
@@ -56,7 +57,7 @@ class MailSendService implements MailSendUseCase {
     public Mono<Void> send(String to, MailType type) {
         return userRepository.findByEmail(to)
                 .flatMap(user -> MailType.REGISTER.equals(type)
-                        ? Mono.error(new RuntimeException()) // 이메일이 이미 사용 중일 때
+                        ? Mono.error(CustomExceptionFactory.conflict("이미 가입된 이메일입니다."))
                         : Mono.empty())
                 .then(Mono.defer(() -> processSendMail(to)));
     }

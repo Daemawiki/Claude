@@ -26,4 +26,12 @@ public final class CustomExceptionFactory {
     public static CustomException notFound(String message, Throwable cause) {
         return new CustomException(HttpStatus.NOT_FOUND, message, cause);
     }
+
+    public static CustomException conflict(String message) {
+        return new CustomException(HttpStatus.CONFLICT, message);
+    }
+
+    public static CustomException conflict(String message, Throwable cause) {
+        return new CustomException(HttpStatus.CONFLICT, message, cause);
+    }
 }
