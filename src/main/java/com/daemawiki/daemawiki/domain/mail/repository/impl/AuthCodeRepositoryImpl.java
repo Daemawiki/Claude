@@ -7,7 +7,6 @@ import com.daemawiki.daemawiki.infrastructure.redis.RedisKey;
 import com.daemawiki.daemawiki.infrastructure.redis.storage.RedisOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;
 
@@ -49,10 +48,7 @@ class AuthCodeRepositoryImpl implements AuthCodeRepository {
     private static <T> Mono<T> handleError(Mono<T> mono) {
         return mono.onErrorMap(e -> {
             log.error("#- Error: " + e);
-            return e instanceof RedisConnectionFailureException ?
-                    CustomExceptionFactory.internalServerError(
-                            "레디스 서버에 연결하는데 문제가 발생했습니다."
-                    ) : e;
+            return CustomExceptionFactory.internalServerError("레디스 서버에 연결하는데 문제가 발생했습니다.");
         });
     }
 }
