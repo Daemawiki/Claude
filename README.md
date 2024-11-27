@@ -7,9 +7,10 @@
 </h1>
 
 <div align="center">
-  <a href="https://github.com/daemawiki/Claude/stargazers"><img src="https://img.shields.io/github/stars/daemawiki/Claude?color=84CC16&logo=github" alt="Github star" /></a>
   <a href="https://daemawiki.xquare.app"><img src="https://img.shields.io/badge/Website-daemawiki-192A4E?color=84CC16" alt="DAEMAWIKI WEBSITE: hxxps://daemawiki.xquare.app/"></a>
-    <a href="https://github.com/daemawiki/Claude/blob/develop/LICENSE"><img src="https://img.shields.io/github/license/daemawiki/Claude?color=84CC16" alt="License" /></a>
+    <a href="https://github.com/daemawiki/Claude/blob/develop/LICENSE"><img src="https://img.shields.io/github/license/daemawiki/Claude?color=84CC16" alt="License" /></a> <br/>
+  <a href="https://github.com/daemawiki/Claude/stargazers"><img src="https://img.shields.io/github/stars/daemawiki/Claude?color=84CC16&logo=github" alt="Github star" /></a>
+  
   <img src="https://github.com/user-attachments/assets/d68d32b7-785b-4e32-bf42-fc6357c5c677" alt="DAEMAWIKI IMAGE" />
 </div>
 
