@@ -6,7 +6,7 @@ import lombok.Getter;
 public enum SortByOption {
     CREATED("dateTime.created"),
     UPDATED("dateTime.updated"),
-    TITLE("title"),
+    TITLE("title.mainTitle"),
     VIEW("viewCount");
 
     private final String path;
