@@ -8,7 +8,9 @@ import org.mapstruct.ReportingPolicy;
 import reactor.util.function.Tuple2;
 import reactor.util.function.Tuples;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * layer간의 dto 클래스가 Document의 요소 클래스로 변환 과정이 필요할 때 해당 Mapper 클래스를 사용합니다.
@@ -39,12 +41,18 @@ public interface DocumentElementMapper {
     DocumentEntity.Type toType(DocumentElementDtos.Type typeDto);
 
     default List<DocumentEntity.Editor> toEditorList(List<DocumentElementDtos.Editor> dtoList) {
+        if (dtoList == null) {
+            return Collections.emptyList();
+        }
         return dtoList.stream()
                 .map(this::toEditor)
                 .toList();
     }
 
     default List<DocumentEntity.Detail> toDetailList(List<DocumentElementDtos.Detail> dtoList) {
+        if (dtoList == null) {
+            return Collections.emptyList();
+        }
         return dtoList.stream()
                 .map(this::toDetail)
                 .toList();
@@ -66,12 +74,18 @@ public interface DocumentElementMapper {
     DocumentElementDtos.Type toTypeDto(DocumentEntity.Type documentType);
 
     default List<DocumentElementDtos.Editor> toEditorDtoList(List<DocumentEntity.Editor> documentEditorList) {
+        if (documentEditorList == null) {
+            return Collections.emptyList();
+        }
         return documentEditorList.stream()
                 .map(this::toEditorDto)
                 .toList();
     }
 
     default List<DocumentElementDtos.Detail> toDetailDtoList(List<DocumentEntity.Detail> documentDetailList) {
+        if (documentDetailList == null) {
+            return Collections.emptyList();
+        }
         return documentDetailList.stream()
                 .map(this::toDetailDto)
                 .toList();
