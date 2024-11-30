@@ -86,6 +86,15 @@ public class FlowContextImpl implements FlowContext {
             }
         }
 
+        @Override
+        public void deleteElement(final int elementId) {
+            verifyNotClosed();
+
+            synchronized(this) {
+                this.elements.remove(elementId);
+            }
+        }
+
         public Flow withCreateElements(final Stream<String> contents) {
             verifyNotClosed();
 

@@ -17,6 +17,8 @@ public interface FlowContext {
         void createElement(int lastElementId, String content);
 
         void updateElement(int elementId, String content);
+
+        void deleteElement(int elementId);
     }
 
     interface Element {

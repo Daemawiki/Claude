@@ -12,6 +12,7 @@ class DocumentOperationHandler {
                 switch (operation.type()) {
                     case INSERT -> handleInsert(operation, flow);
                     case UPDATE -> handleUpdate(operation, flow);
+                    case DELETE -> handleDelete(operation, flow);
                 }
                 return Mono.empty();
             } catch (Exception e) {
@@ -26,5 +27,9 @@ class DocumentOperationHandler {
 
     private static void handleUpdate(EditOperation operation, FlowContext.Flow flow) {
         flow.updateElement(operation.lastElementId(), operation.content());
+    }
+
+    private static void handleDelete(EditOperation operation, FlowContext.Flow flow) {
+        flow.deleteElement(operation.lastElementId());
     }
 }
