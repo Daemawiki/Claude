@@ -2,6 +2,7 @@ package com.daemawiki.daemawiki.application.user.service;
 
 import com.daemawiki.daemawiki.application.document.usecase.CreateUserDocumentUseCase;
 import com.daemawiki.daemawiki.application.user.usecase.UserRegisterUseCase;
+import com.daemawiki.daemawiki.common.error.exception.CustomExceptionFactory;
 import com.daemawiki.daemawiki.domain.mail.repository.AuthUserRepository;
 import com.daemawiki.daemawiki.domain.manager.model.ManagerEntity;
 import com.daemawiki.daemawiki.domain.manager.repository.ManagerRepository;
@@ -12,6 +13,7 @@ import com.daemawiki.daemawiki.interfaces.user.dto.UserRegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Mono;
 
 /**
@@ -19,6 +21,7 @@ import reactor.core.publisher.Mono;
  * 사용자 정보 저장
  */
 @Service
+@Transactional
 @RequiredArgsConstructor
 class UserRegisterService implements UserRegisterUseCase {
     private final CreateUserDocumentUseCase createUserDocumentUseCase;
@@ -64,7 +67,7 @@ class UserRegisterService implements UserRegisterUseCase {
     private Mono<Void> ensureEmailNotRegistered(String email) {
         return userRepository.existsByEmail(email)
                 .filter(exists -> !exists)
-                .switchIfEmpty(Mono.error(new RuntimeException()))
+                .switchIfEmpty(Mono.error(CustomExceptionFactory.conflict(email + "로 가입된 유저가 이미 존재합니다.")))
                 .then();
     }
 
@@ -77,7 +80,7 @@ class UserRegisterService implements UserRegisterUseCase {
     private Mono<Void> validateEmailAuthentication(String email) {
         return authUserRepository.existsByEmail(email)
                 .filter(exists -> exists)
-                .switchIfEmpty(Mono.error(new RuntimeException()))
+                .switchIfEmpty(Mono.error(CustomExceptionFactory.notFound("인증 정보를 찾지 못했습니다.")))
                 .then();
     }
 

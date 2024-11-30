@@ -34,4 +34,12 @@ public final class CustomExceptionFactory {
     public static CustomException forbidden(String message, Throwable cause) {
         return new CustomException(HttpStatus.FORBIDDEN, message, cause);
     }
+  
+    public static CustomException conflict(String message) {
+        return new CustomException(HttpStatus.CONFLICT, message);
+    }
+
+    public static CustomException conflict(String message, Throwable cause) {
+        return new CustomException(HttpStatus.CONFLICT, message, cause);
+    }
 }
