@@ -5,6 +5,7 @@ import com.daemawiki.daemawiki.interfaces.user.dto.UserRegisterRequest;
 import com.daemawiki.daemawiki.application.user.usecase.UserLoginUseCase;
 import com.daemawiki.daemawiki.application.user.usecase.UserRegisterUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.web.server.Cookie;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -36,10 +37,11 @@ class UserAuthController {
             ServerHttpRequest serverHttpRequest
     ) {
         return userLoginUseCase.login(request, serverHttpRequest)
-                .map(sessionValue -> ResponseCookie.from("sessionId", sessionValue)
+                .map(sessionValue -> ResponseCookie.from("SESSION_ID", sessionValue)
                         .path("/api")
                         .httpOnly(true)
                         .secure(true)
+                        .sameSite("NONE")
                         .maxAge(COOKIE_EXPIRATION)
                         .build())
                 .doOnNext(serverHttpResponse::addCookie)
