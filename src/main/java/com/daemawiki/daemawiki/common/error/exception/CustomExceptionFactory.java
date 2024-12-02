@@ -27,6 +27,14 @@ public final class CustomExceptionFactory {
         return new CustomException(HttpStatus.NOT_FOUND, message, cause);
     }
 
+    public static CustomException forbidden(String message) {
+        return new CustomException(HttpStatus.FORBIDDEN, message);
+    }
+
+    public static CustomException forbidden(String message, Throwable cause) {
+        return new CustomException(HttpStatus.FORBIDDEN, message, cause);
+    }
+  
     public static CustomException conflict(String message) {
         return new CustomException(HttpStatus.CONFLICT, message);
     }
