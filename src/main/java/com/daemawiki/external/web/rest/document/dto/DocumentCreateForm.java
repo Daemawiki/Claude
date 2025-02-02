@@ -58,17 +58,17 @@ import java.util.List;
  * </p>
  */
 public record DocumentCreateForm(
-        DocumentTitle title,
-        DocumentType documentType,
+        DocumentTitle documentTitle,
+        DocumentType type,
         List<DocumentCategory> categoryList
 ) {
 
     public static DocumentCreateForm create(
-            final DocumentTitle title,
-            final DocumentType documentType,
+            final DocumentTitle documentTitle,
+            final DocumentType type,
             final List<DocumentCategory> categoryList
     ) {
-        return new DocumentCreateForm(title, documentType, categoryList);
+        return new DocumentCreateForm(documentTitle, type, categoryList);
     }
 
 }
