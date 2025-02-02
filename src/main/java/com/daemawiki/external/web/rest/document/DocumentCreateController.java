@@ -16,9 +16,9 @@ class DocumentCreateController {
 
     @PostMapping
     Mono<Void> create(
-            @RequestBody DocumentCreateForm request
+            @RequestBody final DocumentCreateForm form
     ) {
-        return createUseCase.create(request);
+        return createUseCase.create(dto);
     }
 
 }

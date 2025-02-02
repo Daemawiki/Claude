@@ -22,8 +22,8 @@ class RegisterController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    Mono<Void> register(@RequestBody final RegisterForm request) {
-        final var dto = dtoMapper.toRegisterDTO(request);
+    Mono<Void> register(@RequestBody final RegisterForm registerForm) {
+        final var dto = dtoMapper.toRegisterDTO(registerForm);
 
         return userRegisterUseCase.register(dto);
     }

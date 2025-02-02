@@ -26,11 +26,11 @@ class LoginController {
 
     @PostMapping("/login")
     Mono<Void> login(
-            @RequestBody final LoginForm request,
+            @RequestBody final LoginForm loginForm,
             final ServerHttpResponse serverHttpResponse,
             final ServerHttpRequest serverHttpRequest
     ) {
-        final var dto = dtoMapper.toLoginDTO(request);
+        final var dto = dtoMapper.toLoginDTO(loginForm);
 
         return loginUseCase.login(dto, serverHttpRequest)
                 .map(sessionValue -> ResponseCookie.from("SESSION_ID", sessionValue)
