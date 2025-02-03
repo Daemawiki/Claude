@@ -1,4 +1,4 @@
-package com.daemawiki.external.web.rest.auth.dto;
+package com.daemawiki.external.web.rest.auth.dto.form;
 
 import com.daemawiki.internal.core.domain.model.primitive.auth.Password;
 import com.daemawiki.internal.core.domain.model.primitive.user.personal.Email;

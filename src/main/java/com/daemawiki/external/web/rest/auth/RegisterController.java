@@ -1,7 +1,6 @@
 package com.daemawiki.external.web.rest.auth;
 
-import com.daemawiki.external.web.rest.auth.dto.RegisterForm;
-import com.daemawiki.internal.core.usecase.auth.LoginUseCase;
+import com.daemawiki.external.web.rest.auth.dto.form.RegisterForm;
 import com.daemawiki.internal.core.usecase.auth.RegisterUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
