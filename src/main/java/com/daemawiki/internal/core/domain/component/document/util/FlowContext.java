@@ -1,4 +1,4 @@
-package com.daemawiki.archive.daemawiki.application.document.util;
+package com.daemawiki.internal.core.domain.component.document.util;
 
 import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
 import reactor.core.publisher.Mono;

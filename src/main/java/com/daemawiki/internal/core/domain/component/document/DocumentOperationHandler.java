@@ -1,6 +1,6 @@
 package com.daemawiki.internal.core.domain.component.document;
 
-import com.daemawiki.archive.daemawiki.application.document.util.FlowContext;
+import com.daemawiki.internal.core.domain.component.document.util.FlowContext;
 import com.daemawiki.internal.core.domain.model.dto.document.DocumentSocketEditOperation;
 import reactor.core.publisher.Mono;
 
@@ -28,21 +28,21 @@ public class DocumentOperationHandler {
             final DocumentSocketEditOperation operation,
             final FlowContext.Flow flow
     ) {
-        flow.createElement(operation.lastElementId(), operation.content());
+        flow.createElement(operation.lastElementId().value(), operation.content());
     }
 
     private static void handleUpdate(
             final DocumentSocketEditOperation operation,
             final FlowContext.Flow flow
     ) {
-        flow.updateElement(operation.lastElementId(), operation.content());
+        flow.updateElement(operation.lastElementId().value(), operation.content());
     }
 
     private static void handleDelete(
             final DocumentSocketEditOperation operation,
             final FlowContext.Flow flow
     ) {
-        flow.deleteElement(operation.lastElementId());
+        flow.deleteElement(operation.lastElementId().value());
     }
 
 }

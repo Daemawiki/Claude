@@ -1,4 +1,4 @@
-package com.daemawiki.archive.daemawiki.application.document.util;
+package com.daemawiki.internal.core.domain.component.document.util;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
 import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
@@ -25,7 +25,7 @@ class FlowContextImpl implements FlowContext {
     @SuppressWarnings("resource")
     @Override
     public Mono<Flow> getFlow(final DocumentId documentId) {
-        return Mono.justOrEmpty(this.flows.get(documentId.documentId()))
+        return Mono.justOrEmpty(this.flows.get(documentId.value()))
                 .switchIfEmpty(createFlowByDocumentId(documentId));
     }
 
@@ -33,7 +33,7 @@ class FlowContextImpl implements FlowContext {
         return Mono.defer(() ->
                 documentRepository.findById(documentId)
                         .switchIfEmpty(Mono.error(() -> CustomExceptionFactory.notFound("문서를 찾지 못했습니다.")))
-                        .map(it -> new FlowImpl(documentId.documentId(), this)
+                        .map(it -> new FlowImpl(documentId.value(), this)
                                 .withCreateElements(it.documentContent().textBody().textBody().lines()))
         );
     }

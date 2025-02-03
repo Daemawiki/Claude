@@ -4,7 +4,7 @@ import com.daemawiki.internal.core.domain.component.document.DocumentOperationHa
 import com.daemawiki.internal.core.domain.model.dto.user.UserInternalDTO;
 import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
 import com.daemawiki.internal.core.usecase.document.DocumentSocketEditingUseCase;
-import com.daemawiki.archive.daemawiki.application.document.util.FlowContext;
+import com.daemawiki.internal.core.domain.component.document.util.FlowContext;
 import com.daemawiki.internal.core.domain.component.auth.CurrentUser;
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
 import com.daemawiki.internal.core.domain.model.dto.document.DocumentSocketEditOperation;
