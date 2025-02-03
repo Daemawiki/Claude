@@ -1,6 +1,5 @@
 package com.daemawiki.internal.data.repository.document;
 
-import com.daemawiki.internal.common.paging.PagingInfo;
 import com.daemawiki.internal.core.domain.model.dto.document.DocumentInternalDTO;
 import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
 import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest;
