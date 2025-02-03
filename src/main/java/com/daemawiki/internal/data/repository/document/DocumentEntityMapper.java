@@ -29,27 +29,32 @@ interface DocumentEntityMapper {
     )
     @Mapping(
             target = "content",
-            expression = "java(source.documentContent().textBody().value())"
+            expression = "java(source.documentContent().textBody().value())",
+            defaultValue = " "
     )
     @Mapping(
             target = "detailMap",
             expression = "java(source.documentContent().detailMap().entrySet().stream().collect(Collectors.toMap("
                         + "e -> e.getKey().value(), "
                         + "e -> e.getValue().value()"
-                    + ")))"
+                    + ")))",
+            defaultExpression = "java(Map.of())"
     )
     @Mapping(
             target = "categoryList",
             expression = "java(source.categoryList().stream()" +
-                    ".map(e -> e.category()).toList())"
+                    ".map(e -> e.category()).toList())",
+            defaultExpression = "java(new LinkedList<>())"
     )
     @Mapping(
             target = "viewCount",
-            expression = "java(source.documentInfo().viewCount().value())"
+            expression = "java(source.documentInfo().viewCount().value())",
+            defaultValue = "0"
     )
     @Mapping(
             target = "version",
-            expression = "java(source.documentInfo().version().value())"
+            expression = "java(source.documentInfo().version().value())",
+            defaultValue = "0"
     )
     @Mapping(
             target = "type",
@@ -60,7 +65,8 @@ interface DocumentEntityMapper {
             expression = "java(DocumentEntity.EditedDateTime.create("
                         + "source.editedDateTime().createdDateTime().value(), "
                         + "source.editedDateTime().lastModifiedDateTime().value()"
-                    + "))"
+                    + "))",
+            defaultExpression = "java(EditedDateTime.create())"
     )
     @Mapping(
             target = "owner",
@@ -73,7 +79,8 @@ interface DocumentEntityMapper {
             target = "editorSet",
             expression = "java(source.documentEditor().editorSet().stream().map("
                         + "e -> DocumentEntity.Editor.create(e.name(), e.userId())"
-                    + ").collect(Collectors.toSet()))"
+                    + ").collect(Collectors.toSet()))",
+            defaultExpression = "java(new HashSet<>())"
     )
     DocumentEntity toEntity(DocumentInternalDTO source);
 
