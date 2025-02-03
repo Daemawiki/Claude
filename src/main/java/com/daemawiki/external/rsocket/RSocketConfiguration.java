@@ -1,6 +1,5 @@
-package com.daemawiki.external.web.socket.configuration;
+package com.daemawiki.external.rsocket;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.boot.rsocket.messaging.RSocketStrategiesCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

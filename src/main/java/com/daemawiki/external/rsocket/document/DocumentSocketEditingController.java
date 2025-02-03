@@ -1,4 +1,4 @@
-package com.daemawiki.external.web.rest.document;
+package com.daemawiki.external.rsocket.document;
 
 import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
 import com.daemawiki.internal.core.usecase.document.DocumentSocketEditingUseCase;
@@ -12,15 +12,16 @@ import reactor.core.publisher.Mono;
 @Controller
 @RequiredArgsConstructor
 class DocumentSocketEditingController {
+
     private final DocumentSocketEditingUseCase documentSocketEditingUseCase;
 
     @MessageMapping("document.edit")
-    public Mono<Void> handleEdit(DocumentSocketEditOperation operation) {
+    Mono<Void> handleEdit(final DocumentSocketEditOperation operation) {
         return documentSocketEditingUseCase.handleEdit(operation);
     }
 
     @MessageMapping("document.subscribe")
-    public Flux<DocumentSocketEditOperation> subscribeToDocument(DocumentId documentId) {
+    Flux<DocumentSocketEditOperation> subscribeToDocument(final DocumentId documentId) {
         return documentSocketEditingUseCase.subscribeToDocument(documentId);
     }
 
