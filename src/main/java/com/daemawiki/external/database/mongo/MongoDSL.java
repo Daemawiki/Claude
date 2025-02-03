@@ -1,6 +1,6 @@
 package com.daemawiki.external.database.mongo;
 
-import com.daemawiki.internal.common.paging.PagingInfo;
+import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -27,13 +27,13 @@ public class MongoDSL {
         return this;
     }
 
-    public MongoDSL paging(final PagingInfo pagingInfo) {
-        if (pagingInfo.sortBy() != null) {
-            final var direction = (pagingInfo.sortDirection() == 1)
+    public MongoDSL paging(final PagingRequest pagingRequest) {
+        if (pagingRequest.sortProperty() != null) {
+            final var direction = (pagingRequest.sortDirection().value() == 1)
                     ? Sort.Direction.ASC
                     : Sort.Direction.DESC;
 
-            query.with(Sort.by(direction, pagingInfo.sortBy().getPath()));
+            query.with(Sort.by(direction, pagingRequest.sortProperty().value()));
         }
         return this;
     }
