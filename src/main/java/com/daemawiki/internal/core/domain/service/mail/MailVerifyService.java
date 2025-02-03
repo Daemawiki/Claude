@@ -1,11 +1,11 @@
 package com.daemawiki.internal.core.domain.service.mail;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
+import com.daemawiki.internal.core.domain.model.primitive.mail.AuthCode;
 import com.daemawiki.internal.core.domain.model.primitive.user.personal.Email;
 import com.daemawiki.internal.core.usecase.mail.MailVerifyUseCase;
-import com.daemawiki.internal.core.domain.model.dto.mail.AuthCodeDTO;
-import com.daemawiki.archive.daemawiki.domain.mail.repository.AuthCodeRepository;
-import com.daemawiki.archive.daemawiki.domain.mail.repository.AuthUserRepository;
+import com.daemawiki.internal.data.repository.mail.AuthCodeRepository;
+import com.daemawiki.internal.data.repository.mail.AuthMailRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
@@ -16,22 +16,25 @@ class MailVerifyService implements MailVerifyUseCase {
 
     private final AuthCodeRepository authCodeRepository;
 
-    private final AuthUserRepository authUserRepository;
+    private final AuthMailRepository authMailRepository;
 
     @Override
     public Mono<Void> verify(
             final Email target,
-            final String code
+            final AuthCode authCode
     ) {
         return authCodeRepository.findByMail(target)
                 .switchIfEmpty(Mono.error(CustomExceptionFactory.badRequest("인증에 실패하였습니다. 인증 코드를 다시 보내세요.")))
-                .filter(model -> model.code().equals(code))
+                .filter(dto -> dto.authCode().equals(authCode))
                 .switchIfEmpty(Mono.error(CustomExceptionFactory.badRequest("인증 코드가 정확하지 않습니다.")))
-                .flatMap(this::saveAuthenticationUser);
+                .flatMap(dto -> process(dto.email()));
     }
 
-    private Mono<Void> saveAuthenticationUser(final AuthCodeDTO model) { // TODO: 1/31/25 리팩토링 대상 메서드
-        return authUserRepository.save(model.email()).then(); // 불필요한 깊이를 만드는 메서드
+    private Mono<Void> process(final Email email) {
+        return Mono.when(
+                authMailRepository.save(email),
+                authCodeRepository.deleteByEmail(email)
+        );
     }
 
 }
