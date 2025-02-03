@@ -20,7 +20,7 @@ public interface DocumentEditUseCase {
             DocumentTitle title
     );
 
-    Mono<Void> editEditors(
+    Mono<Void> editEditorSet(
             DocumentId documentId,
             Set<Editor> editorSet
     );

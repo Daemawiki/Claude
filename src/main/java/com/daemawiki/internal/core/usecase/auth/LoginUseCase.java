@@ -6,6 +6,9 @@ import reactor.core.publisher.Mono;
 
 public interface LoginUseCase {
 
-    Mono<String> login(LoginDTO dto, ServerHttpRequest serverHttpRequest);
+    Mono<String> login(
+            LoginDTO dto,
+            ServerHttpRequest serverHttpRequest
+    );
 
 }
