@@ -17,7 +17,7 @@ public record DocumentHalfResponse(
         MainTitle mainTitle,
         @JsonProperty("content")
         TextBody content,
-        DocumentType documentType,
+        DocumentType type,
         List<DocumentCategory> categoryList,
         DocumentInfo documentInfo,
         EditedDateTime editedDateTime
