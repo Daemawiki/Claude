@@ -56,7 +56,7 @@ class DocumentEditService implements DocumentEditUseCase {
 
     @Override
     @CacheEvict(cacheNames = "documents", key = "#documentId.documentId")
-    public Mono<Void> editEditors(
+    public Mono<Void> editEditorSet(
             final DocumentId documentId,
             final Set<Editor> editorSet
     ) {

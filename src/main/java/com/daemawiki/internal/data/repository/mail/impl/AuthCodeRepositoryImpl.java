@@ -1,8 +1,9 @@
-package com.daemawiki.archive.daemawiki.domain.mail.repository.impl;
+package com.daemawiki.internal.data.repository.mail.impl;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
 import com.daemawiki.internal.core.domain.model.dto.mail.AuthCodeDTO;
-import com.daemawiki.archive.daemawiki.domain.mail.repository.AuthCodeRepository;
+import com.daemawiki.internal.core.domain.model.primitive.mail.AuthCode;
+import com.daemawiki.internal.data.repository.mail.AuthCodeRepository;
 import com.daemawiki.external.database.redis.RedisKey;
 import com.daemawiki.external.database.redis.storage.RedisOperation;
 import com.daemawiki.internal.core.domain.model.primitive.user.personal.Email;
@@ -15,18 +16,18 @@ import java.time.Duration;
 
 @Repository
 @RequiredArgsConstructor
-@Slf4j(topic = "메일 인증 코드 레디스 레포지토리")
+@Slf4j(topic = "AuthCodeRepositoryImpl")
 class AuthCodeRepositoryImpl implements AuthCodeRepository {
 
     private static final String AUTH_CODE = RedisKey.AUTH_CODE.getKey();
 
-    private final RedisOperation redisOperation;
+    private final RedisOperation<AuthCode> redisOperation;
 
     @Override
     public Mono<Boolean> save(final AuthCodeDTO model) {
         return handleError(redisOperation.save(
                 AUTH_CODE + model.email(),
-                model.code(),
+                model.authCode(),
                 Duration.ofMinutes(30)
         ));
     }
@@ -34,7 +35,7 @@ class AuthCodeRepositoryImpl implements AuthCodeRepository {
     @Override
     public Mono<AuthCodeDTO> findByMail(final Email email) {
         return handleError(redisOperation.getValue(AUTH_CODE + email.value())
-                .map(code -> AuthCodeDTO.of(email.value(), code)));
+                .map(authCode -> AuthCodeDTO.create(email, authCode)));
     }
 
     @Override

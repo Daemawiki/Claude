@@ -7,7 +7,7 @@ import com.daemawiki.internal.core.domain.model.primitive.user.UserRole;
 import com.daemawiki.internal.core.domain.model.primitive.user.personal.Email;
 import com.daemawiki.internal.core.usecase.auth.RegisterUseCase;
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
-import com.daemawiki.archive.daemawiki.domain.mail.repository.AuthUserRepository;
+import com.daemawiki.internal.data.repository.mail.AuthMailRepository;
 import com.daemawiki.archive.daemawiki.domain.manager.model.ManagerEntity;
 import com.daemawiki.archive.daemawiki.domain.manager.repository.ManagerRepository;
 import com.daemawiki.internal.data.repository.user.UserRepository;
@@ -25,7 +25,7 @@ class RegisterService implements RegisterUseCase {
 
     private final ApplicationEventPublisher applicationEventPublisher;
 
-    private final AuthUserRepository authUserRepository;
+    private final AuthMailRepository authMailRepository;
 
     private final ManagerRepository managerRepository;
 
@@ -54,7 +54,7 @@ class RegisterService implements RegisterUseCase {
     }
 
     private Mono<Void> validateEmailAuthentication(final Email email) {
-        return authUserRepository.existsByEmail(email)
+        return authMailRepository.existsByEmail(email)
                 .filter(exists -> exists)
                 .switchIfEmpty(Mono.error(CustomExceptionFactory.notFound("인증 정보를 불러오지 못했습니다.")))
                 .then();

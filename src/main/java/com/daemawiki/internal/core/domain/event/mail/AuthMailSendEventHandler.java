@@ -2,7 +2,7 @@ package com.daemawiki.internal.core.domain.event.mail;
 
 import com.daemawiki.internal.core.domain.model.event.mail.MailSendEvent;
 import com.daemawiki.internal.core.domain.model.dto.mail.AuthCodeDTO;
-import com.daemawiki.archive.daemawiki.domain.mail.repository.AuthCodeRepository;
+import com.daemawiki.internal.data.repository.mail.AuthCodeRepository;
 import com.daemawiki.internal.core.domain.model.primitive.mail.AuthCode;
 import com.daemawiki.internal.data.property.MailSenderProperties;
 import jakarta.mail.MessagingException;
