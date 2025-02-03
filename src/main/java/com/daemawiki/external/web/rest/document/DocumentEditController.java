@@ -1,9 +1,10 @@
 package com.daemawiki.external.web.rest.document;
 
+import com.daemawiki.external.web.rest.document.dto.form.DocumentEditEditorSetForm;
+import com.daemawiki.external.web.rest.document.dto.form.DocumentEditTitleForm;
+import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
 import com.daemawiki.internal.core.usecase.document.DocumentEditUseCase;
 import com.daemawiki.archive.daemawiki.common.annotation.ui.DocumentsRestApi;
-import com.daemawiki.internal.common.http.ListRequest;
-import com.daemawiki.archive.daemawiki.interfaces.document.dto.DocumentElementDtos;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -16,24 +17,24 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 class DocumentEditController {
 
-    private final DocumentEditUseCase editUseCase;
+    private final DocumentEditUseCase documentEditUseCase;
 
-    @PatchMapping("/{documentId}/editor")
+    @PatchMapping("/{documentId}/editors")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     Mono<Void> editEditors(
-            @PathVariable String documentId,
-            @RequestBody ListRequest<DocumentElementDtos.Editor> request
+            @PathVariable final DocumentId documentId,
+            @RequestBody final DocumentEditEditorSetForm form
     ) {
-        return editUseCase.editEditors(documentId, request.list());
+        return documentEditUseCase.editEditorSet(documentId, form.editorList());
     }
 
-    @PatchMapping("/{documentId}/info")
+    @PatchMapping("/{documentId}/title")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    Mono<Void> editInfo(
-            @PathVariable String documentId,
-            @RequestBody DocumentElementDtos.UpdateInfo request
+    Mono<Void> editTitle(
+            @PathVariable final DocumentId documentId,
+            @RequestBody final DocumentEditTitleForm form
     ) {
-        return editUseCase.editInfo(documentId, request);
+        return documentEditUseCase.editTitle(documentId, form.documentTitle());
     }
 
 }

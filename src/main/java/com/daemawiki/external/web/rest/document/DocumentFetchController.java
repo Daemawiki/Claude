@@ -7,7 +7,6 @@ import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest
 import com.daemawiki.internal.core.domain.model.value.shard.search.SearchResponse;
 import com.daemawiki.external.web.rest.document.dto.DocumentHalfResponse;
 import com.daemawiki.external.web.rest.document.dto.DocumentFullResponse;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,26 +18,36 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 class DocumentFetchController {
 
-    private final DocumentFetchUseCase fetchUseCase;
+    private final DocumentFetchUseCase documentFetchUseCase;
+
+    private final DocumentDTOMapper documentDTOMapper;
 
     @GetMapping("/random")
     Mono<DocumentFullResponse> fetchRandom() {
-        return fetchUseCase.fetchRandom();
+        return documentFetchUseCase.fetchRandom()
+                .map(documentDTOMapper::toDocumentFullResponse);
     }
 
     @GetMapping("/search")
     Mono<SearchResponse<DocumentHalfResponse>> search(
-            @RequestParam String text,
-            @ModelAttribute @Valid PagingRequest request
+            @RequestParam final String text,
+            @ModelAttribute final PagingRequest request // TODO: 2/3/25 계층 분리
     ) {
-        return fetchUseCase.search(text, request);
+        return documentFetchUseCase.search(text, request)
+                .map(e -> SearchResponse.create(
+                        documentDTOMapper.toDocumentHalfResponseList(e.data()),
+                        e.sizeNumber(),
+                        e.pageNumber(),
+                        e.hasNextPage()
+                ));
     }
 
     @GetMapping("/{documentId}")
     Mono<DocumentFullResponse> fetchById(
-            @PathVariable DocumentId documentId
+            @PathVariable final DocumentId documentId
     ) {
-        return fetchUseCase.fetchById(documentId);
+        return documentFetchUseCase.fetchById(documentId)
+                .map(documentDTOMapper::toDocumentFullResponse);
     }
 
 }

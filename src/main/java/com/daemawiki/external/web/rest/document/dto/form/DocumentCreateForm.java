@@ -1,4 +1,4 @@
-package com.daemawiki.external.web.rest.document.dto;
+package com.daemawiki.external.web.rest.document.dto.form;
 
 import com.daemawiki.internal.core.domain.model.primitive.document.DocumentCategory;
 import com.daemawiki.internal.core.domain.model.primitive.document.DocumentType;

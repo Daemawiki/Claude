@@ -12,13 +12,13 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 class DocumentRemoveController {
 
-    private final DocumentRemoveUseCase removeUseCase;
+    private final DocumentRemoveUseCase documentRemoveUseCase;
 
     @DeleteMapping("/{documentId}")
     Mono<Void> remove(
-            @PathVariable DocumentId documentId
+            @PathVariable final DocumentId documentId
     ) {
-        return removeUseCase.remove(documentId);
+        return documentRemoveUseCase.remove(documentId);
     }
 
 }
