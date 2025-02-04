@@ -1,6 +1,7 @@
 package com.daemawiki.external.web.rest.document;
 
 import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
+import com.daemawiki.internal.core.domain.model.primitive.shard.search.SearchText;
 import com.daemawiki.internal.core.usecase.document.DocumentFetchUseCase;
 import com.daemawiki.archive.daemawiki.common.annotation.ui.DocumentsRestApi;
 import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest;
@@ -30,10 +31,10 @@ class DocumentFetchController {
 
     @GetMapping("/search")
     Mono<SearchResponse<DocumentHalfResponse>> search(
-            @RequestParam final String text,
+            @RequestParam final SearchText searchText,
             @ModelAttribute final PagingRequest request // TODO: 2/3/25 계층 분리
     ) {
-        return documentFetchUseCase.search(text, request)
+        return documentFetchUseCase.search(searchText, request)
                 .map(e -> SearchResponse.create(
                         documentDTOMapper.toDocumentHalfResponseList(e.data()),
                         e.sizeNumber(),

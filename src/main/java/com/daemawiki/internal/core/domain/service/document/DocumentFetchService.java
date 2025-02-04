@@ -5,6 +5,7 @@ import com.daemawiki.internal.core.domain.model.dto.document.DocumentInternalDTO
 import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
 import com.daemawiki.internal.core.domain.model.primitive.shard.paging.PageNumber;
 import com.daemawiki.internal.core.domain.model.primitive.shard.paging.SizeNumber;
+import com.daemawiki.internal.core.domain.model.primitive.shard.search.SearchText;
 import com.daemawiki.internal.core.usecase.document.DocumentFetchUseCase;
 import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest;
 import com.daemawiki.internal.core.domain.model.value.shard.search.SearchResponse;
@@ -38,9 +39,9 @@ class DocumentFetchService implements DocumentFetchUseCase {
 
     // TODO: 1/28/25 검색 캐싱에서 size를 캐싱 키로 두지 않고 서버에서 고정하는 방법 고려
     @Override
-    @Cacheable(cacheNames = "documents", key = "{#searchText, #pagingRequest.pageNumber().value(), #pagingRequest.sizeNumber().value()}")
+    @Cacheable(cacheNames = "documents", key = "{#searchText.value(), #pagingRequest.pageNumber().value(), #pagingRequest.sizeNumber().value()}")
     public Mono<SearchResponse<DocumentInternalDTO>> search(
-            final String searchText,
+            final SearchText searchText,
             final PagingRequest pagingRequest
     ) {
         return documentRepository.search(searchText, pagingRequest)

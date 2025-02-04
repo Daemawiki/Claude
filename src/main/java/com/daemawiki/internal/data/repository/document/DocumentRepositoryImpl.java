@@ -2,6 +2,7 @@ package com.daemawiki.internal.data.repository.document;
 
 import com.daemawiki.internal.core.domain.model.dto.document.DocumentInternalDTO;
 import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
+import com.daemawiki.internal.core.domain.model.primitive.shard.search.SearchText;
 import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -42,11 +43,11 @@ class DocumentRepositoryImpl implements DocumentRepository {
 
     @Override
     public Flux<DocumentInternalDTO> search(
-            final String searchText,
+            final SearchText searchText,
             final PagingRequest pagingRequest
     ) {
         return documentMongoRepository.search(
-                searchText,
+                searchText.value(),
                 pagingRequest.sortProperty().value(), // TODO: 1/29/25 정렬되는 경로를 매핑해줘야함 ex) input: CREATED, mapping: editedDateTime.createdDateTime
                 pagingRequest.sortDirection().value(),
                 pagingRequest.pageNumber().value() * pagingRequest.sizeNumber().value(),
