@@ -1,5 +1,6 @@
 package com.daemawiki.external.web.rest.auth;
 
+import com.daemawiki.external.web.annotation.ui.AuthRestApi;
 import com.daemawiki.external.web.rest.auth.dto.form.LoginForm;
 import com.daemawiki.internal.core.usecase.auth.LoginUseCase;
 import lombok.RequiredArgsConstructor;
@@ -8,15 +9,12 @@ import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
 
-@RestController
+@AuthRestApi
 @RequiredArgsConstructor
-@RequestMapping("/api/auth")
 class LoginController {
 
     private static final Duration COOKIE_EXPIRATION = Duration.ofHours(3);
