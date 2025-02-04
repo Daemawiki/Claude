@@ -1,4 +1,4 @@
-package com.daemawiki.archive.daemawiki.common.annotation.ui;
+package com.daemawiki.external.web.annotation.ui;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
