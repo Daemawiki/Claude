@@ -21,7 +21,9 @@ import java.net.InetSocketAddress;
 class LoginService implements LoginUseCase {
 
     private final SessionRepository sessionRepository;
+
     private final PasswordEncoder passwordEncoder;
+
     private final UserRepository userRepository;
 
     @Override
@@ -39,14 +41,14 @@ class LoginService implements LoginUseCase {
             final InetSocketAddress remoteAddress
     ) {
         return loginProcess(dto)
-                .map(user -> SessionModel.of(remoteAddress.toString(), user.personalData().email().email()))
+                .map(user -> SessionModel.of(remoteAddress.toString(), user.personalData().email().value()))
                 .flatMap(sessionRepository::save)
                 .map(SessionModel::id);
     }
 
     private Mono<UserInternalDTO> loginProcess(final LoginDTO dto) {
         return userRepository.findByEmail(dto.email())
-                .switchIfEmpty(Mono.error(CustomExceptionFactory.notFound(dto.email().email() + "의 메일 주소를 사용하는 사용자를 찾지 못했습니다.")))
+                .switchIfEmpty(Mono.error(CustomExceptionFactory.notFound(dto.email().value() + "의 메일 주소를 사용하는 사용자를 찾지 못했습니다.")))
                 .flatMap(user -> validatePassword(user, dto.password()));
     }
 
@@ -54,7 +56,7 @@ class LoginService implements LoginUseCase {
             final UserInternalDTO user,
             final Password requestPassword
     ) {
-        return passwordEncoder.matches(requestPassword.password(), user.personalData().securedPassword().securedPassword())
+        return passwordEncoder.matches(requestPassword.password(), user.personalData().securedPassword().value())
                 ? Mono.just(user)
                 : Mono.error(CustomExceptionFactory.unauthorized("비밀번호가 일치하지 않습니다."));
     }

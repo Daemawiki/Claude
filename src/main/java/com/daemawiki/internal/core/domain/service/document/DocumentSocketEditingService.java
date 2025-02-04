@@ -71,7 +71,7 @@ class DocumentSocketEditingService implements DocumentSocketEditingUseCase {
 
     private Sinks.Many<DocumentSocketEditOperation> getSinkForDocument(final DocumentId documentId) {
         return documentSinks.computeIfAbsent(
-                documentId.documentId(),
+                documentId.value(),
                 id -> Sinks.many()
                         .multicast()
                         .onBackpressureBuffer(256, true)

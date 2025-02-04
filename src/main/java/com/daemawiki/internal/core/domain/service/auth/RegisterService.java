@@ -88,9 +88,12 @@ class RegisterService implements RegisterUseCase {
         return saveUserAndUpdateManager(user, manager);
     }
 
-    private Mono<UserInternalDTO> saveUserAndUpdateManager(UserInternalDTO user, ManagerEntity manager) {
+    private Mono<UserInternalDTO> saveUserAndUpdateManager(
+            final UserInternalDTO user,
+            final ManagerEntity manager
+    ) {
         return userRepository.save(user)
-                .doOnNext(savedUser -> manager.addUserId(savedUser.userId().userId()))
+                .doOnNext(savedUser -> manager.addUserId(savedUser.userId().value()))
                 .then(managerRepository.save(manager))
                 .thenReturn(user);
     }
@@ -99,7 +102,7 @@ class RegisterService implements RegisterUseCase {
             final RegisterDTO dto,
             final UserRole userRole
     ) {
-        final String encodedPassword = passwordEncoder.encode(dto.password().password());
+        final String encodedPassword = passwordEncoder.encode(dto.password().value());
 
         return UserInternalDTO.create(dto, encodedPassword, userRole);
     }
