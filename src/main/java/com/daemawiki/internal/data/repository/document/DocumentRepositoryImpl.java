@@ -17,7 +17,7 @@ class DocumentRepositoryImpl implements DocumentRepository {
     private final DocumentEntityMapper documentEntityMapper;
 
     @Override
-    public Mono<DocumentInternalDTO> save(DocumentInternalDTO dto) {
+    public Mono<DocumentInternalDTO> save(final DocumentInternalDTO dto) {
         final var entity = documentEntityMapper.toEntity(dto);
 
         return documentMongoRepository.save(entity)
@@ -25,8 +25,8 @@ class DocumentRepositoryImpl implements DocumentRepository {
     }
 
     @Override
-    public Mono<DocumentInternalDTO> findById(DocumentId id) {
-        return documentMongoRepository.findById(id.documentId())
+    public Mono<DocumentInternalDTO> findById(final DocumentId documentId) {
+        return documentMongoRepository.findById(documentId.value())
                 .map(documentEntityMapper::toDTO);
     }
 
@@ -37,8 +37,8 @@ class DocumentRepositoryImpl implements DocumentRepository {
     }
 
     @Override
-    public Mono<Void> deleteById(DocumentId id) {
-        return documentMongoRepository.deleteById(id.documentId());
+    public Mono<Void> deleteById(final DocumentId documentId) {
+        return documentMongoRepository.deleteById(documentId.value());
     }
 
     @Override

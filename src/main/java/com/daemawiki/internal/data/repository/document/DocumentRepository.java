@@ -11,11 +11,11 @@ public interface DocumentRepository {
 
     Mono<DocumentInternalDTO> save(DocumentInternalDTO dto);
 
-    Mono<DocumentInternalDTO> findById(DocumentId id);
+    Mono<DocumentInternalDTO> findById(DocumentId documentId);
 
     Mono<DocumentInternalDTO> getRandom();
 
-    Mono<Void> deleteById(DocumentId id);
+    Mono<Void> deleteById(DocumentId documentId);
 
     Flux<DocumentInternalDTO> search(
             SearchText searchText,

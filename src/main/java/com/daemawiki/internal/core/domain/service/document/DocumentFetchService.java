@@ -26,7 +26,7 @@ class DocumentFetchService implements DocumentFetchUseCase {
     private final DocumentRepository documentRepository;
 
     @Override
-    @Cacheable(cacheNames = "documents", key = "#documentId.documentId")
+    @Cacheable(cacheNames = "documents", key = "#documentId.value()")
     public Mono<DocumentInternalDTO> fetchById(final DocumentId documentId) {
         return documentRepository.findById(documentId)
                         .switchIfEmpty(Mono.error(CustomExceptionFactory.notFound("문서를 찾지 못했습니다.")));
