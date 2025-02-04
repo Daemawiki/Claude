@@ -22,18 +22,18 @@ abstract class UserAbstractRepository implements UserRepository {
 
     @Override
     public Mono<UserInternalDTO> findByEmail(final Email email) {
-        return userMongoRepository.findByEmail(email.email())
+        return userMongoRepository.findByEmail(email.value())
                 .map(userEntityMapper::toDTO);
     }
 
     @Override
     public Mono<Boolean> existsByEmail(final Email email) {
-        return userMongoRepository.existsByEmail(email.email());
+        return userMongoRepository.existsByEmail(email.value());
     }
 
     @Override
     public Mono<UserInternalDTO> findById(final UserId userId) {
-        return userMongoRepository.findById(userId.userId())
+        return userMongoRepository.findById(userId.value())
                 .map(userEntityMapper::toDTO);
     }
 

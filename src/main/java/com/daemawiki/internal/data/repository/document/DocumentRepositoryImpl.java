@@ -14,6 +14,7 @@ import reactor.core.publisher.Mono;
 class DocumentRepositoryImpl implements DocumentRepository {
 
     private final DocumentMongoRepository documentMongoRepository;
+
     private final DocumentEntityMapper documentEntityMapper;
 
     @Override
