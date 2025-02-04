@@ -3,7 +3,7 @@ package com.daemawiki.internal.core.domain.service.mail;
 import com.daemawiki.internal.core.domain.model.event.mail.MailSendEvent;
 import com.daemawiki.internal.core.usecase.mail.MailSendUseCase;
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
-import com.daemawiki.archive.daemawiki.domain.mail.model.type.MailType;
+import com.daemawiki.internal.core.domain.model.primitive.mail.MailType;
 import com.daemawiki.internal.core.domain.model.primitive.user.personal.Email;
 import com.daemawiki.internal.data.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
