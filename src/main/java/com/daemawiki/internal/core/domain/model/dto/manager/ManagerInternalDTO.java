@@ -11,7 +11,7 @@ public record ManagerInternalDTO(
 ) {
 
     public ManagerInternalDTO updateUserId(final UserId userId) {
-        return create(managerId, email, userId);
+        return new ManagerInternalDTO(managerId, email, userId);
     }
 
     public static ManagerInternalDTO create(

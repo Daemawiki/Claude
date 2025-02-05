@@ -24,8 +24,4 @@ class ManagerEntity {
     @Indexed(unique = true)
     private String userId;
 
-    public void addUserId(String userId) { // TODO: 2/4/25  
-        this.userId = userId;
-    }
-
 }

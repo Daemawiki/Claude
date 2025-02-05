@@ -42,14 +42,6 @@ class UserEntity {
 
     private String role;
 
-    public void updateDocumentId(final String documentId) { // TODO: 2/4/25
-        this.documentId = documentId;
-    }
-
-    public void changePassword(final String password) { // TODO: 2/4/25
-        this.password = password;
-    }
-
     record StudentInfo(
             Integer academicYear,
             Integer studentGrade,

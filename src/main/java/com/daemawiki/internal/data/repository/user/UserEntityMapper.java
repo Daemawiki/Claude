@@ -20,135 +20,137 @@ interface UserEntityMapper {
 
     @Mapping(
             target = "id",
-            expression = "java(source.userId().value())",
+            expression = "java(userInternalDTO.userId().value())",
             ignore = true
     )
     @Mapping(
             target = "role",
-            expression = "java(source.role().name())"
+            expression = "java(userInternalDTO.userRole().name())"
     )
     @Mapping(
             target = "name",
-            expression = "java(source.personalData().name().value())"
+            expression = "java(userInternalDTO.personalData().name().value())"
     )
     @Mapping(
             target = "email",
-            expression = "java(source.personalData().email().value())"
+            expression = "java(userInternalDTO.personalData().email().value())"
     )
     @Mapping(
             target = "password",
-            expression = "java(source.personalData().securedPassword().value())"
+            expression = "java(userInternalDTO.personalData().securedPassword().value())"
     )
     @Mapping(
             target = "documentId",
-            expression = "java(source.documentId().value())",
+            expression = "java(userInternalDTO.documentId().value())",
             ignore = true
     )
     @Mapping(
             target = "generation",
-            expression = "java(source.generation().value())"
+            expression = "java(userInternalDTO.personalData().generation().value())"
     )
     @Mapping(
             target = "major",
-            expression = "java(source.major().value())"
+            expression = "java(userInternalDTO.personalData().major().value())"
     )
     @Mapping(
             target = "studentInfoList",
-            expression = "java(this.toStudentInfoEntityList(source.studentInfoList()))"
+            expression = "java(this.toStudentInfoEntityList(userInternalDTO.studentInfoList()))"
     )
     @Mapping(
             target = "registrationDate",
-            expression = "java(source.registrationDate().value())",
+            expression = "java(userInternalDTO.registrationDate().value())",
             ignore = true
     )
-    UserEntity toEntity(UserInternalDTO source);
+    UserEntity toEntity(UserInternalDTO userInternalDTO);
+
+    @Mapping(target = "updateDocumentId", ignore = true)
 
     @Mapping(
             target = "userId",
-            expression = "java(UserId.create(source.getId()))"
+            expression = "java(UserId.create(userEntity.getId()))"
     )
     @Mapping(
             target = "userRole",
-            expression = "java(UserRole.valueOf(source.getRole()))"
+            expression = "java(UserRole.valueOf(userEntity.getRole()))"
     )
     @Mapping(
             target = "personalData.name",
-            expression = "java(Name.create(source.getName()))"
+            expression = "java(Name.create(userEntity.getName()))"
     )
     @Mapping(
             target = "personalData.email",
-            expression = "java(Email.create(source.getEmail()))"
+            expression = "java(Email.create(userEntity.getEmail()))"
     )
     @Mapping(
             target = "personalData.securedPassword",
-            expression = "java(SecuredPassword.create(source.getPassword()))"
+            expression = "java(SecuredPassword.create(userEntity.getPassword()))"
     )
     @Mapping(
             target = "personalData.generation",
-            expression = "java(Generation.create(source.getGeneration()))"
+            expression = "java(Generation.create(userEntity.getGeneration()))"
     )
     @Mapping(
             target = "personalData.major",
-            expression = "java(Major.create(source.getMajor()))"
+            expression = "java(Major.create(userEntity.getMajor()))"
     )
     @Mapping(
             target = "documentId",
-            expression = "java(DocumentId.create(source.documentId()))"
+            expression = "java(DocumentId.create(userEntity.getDocumentId()))"
     )
     @Mapping(
             target = "studentInfoList",
-            expression = "java(this.toStudentInfoDTOList(source.getStudentInfoList()))"
+            expression = "java(this.toStudentInfoDTOList(userEntity.getStudentInfoList()))"
     )
     @Mapping(
             target = "registrationDate",
-            expression = "java(RegistrationDate.create(source.getRegistrationDate()))"
+            expression = "java(RegistrationDate.create(userEntity.getRegistrationDate().toString()))"
     )
-    UserInternalDTO toDTO(UserEntity source);
+    UserInternalDTO toDTO(UserEntity userEntity);
 
     @Mapping(
             target = "academicYear",
-            expression = "java(source.academicYear().value())"
+            expression = "java(studentInfo.academicYear().value())"
     )
     @Mapping(
             target = "studentGrade",
-            expression = "java(source.studentGrade().value())"
+            expression = "java(studentInfo.studentGrade().value())"
     )
     @Mapping(
             target = "classNumber",
-            expression = "java(source.classNumber().value())"
+            expression = "java(studentInfo.classNumber().value())"
     )
     @Mapping(
             target = "studentNumber",
-            expression = "java(source.studentNumber().value())"
+            expression = "java(studentInfo.studentNumber().value())"
     )
-    UserEntity.StudentInfo toStudentInfoEntity(StudentInfo source);
+    UserEntity.StudentInfo toStudentInfoEntity(StudentInfo studentInfo);
 
     @Mapping(
             target = "academicYear",
-            expression = "java(AcademicYear.create(source.academicYear()))"
+            expression = "java(AcademicYear.create(userEntityStudentInfo.academicYear()))"
     )
     @Mapping(
             target = "studentGrade",
-            expression = "java(StudentGrade.create(source.studentGrade()))"
+            expression = "java(StudentGrade.create(userEntityStudentInfo.studentGrade()))"
     )
     @Mapping(
             target = "classNumber",
-            expression = "java(ClassNumber.create(source.classNumber()))"
+            expression = "java(ClassNumber.create(userEntityStudentInfo.classNumber()))"
     )
     @Mapping(
             target = "studentNumber",
-            expression = "java(StudentNumber.create(source.studentNumber()))"
+            expression = "java(StudentNumber.create(userEntityStudentInfo.studentNumber()))"
     )
-    StudentInfo toStudentInfoDTO(UserEntity.StudentInfo source);
+    StudentInfo toStudentInfoDTO(UserEntity.StudentInfo userEntityStudentInfo);
 
-    default List<UserEntity.StudentInfo> toStudentInfoEntityList(List<StudentInfo> source) {
-        return source.stream()
+    default List<UserEntity.StudentInfo> toStudentInfoEntityList(List<StudentInfo> studentInfoList) {
+        return studentInfoList.stream()
                 .map(this::toStudentInfoEntity)
                 .toList();
     }
 
-    default List<StudentInfo> toStudentInfoDTOList(List<UserEntity.StudentInfo> source) {
-        return source.stream()
+    default List<StudentInfo> toStudentInfoDTOList(List<UserEntity.StudentInfo> userEntityStudentInfoList) {
+        return userEntityStudentInfoList.stream()
                 .map(this::toStudentInfoDTO)
                 .toList();
     }

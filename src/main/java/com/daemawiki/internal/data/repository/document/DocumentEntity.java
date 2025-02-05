@@ -29,7 +29,6 @@ class DocumentEntity {
 
     private String content;
 
-//    private List<Detail> detailList;
     private Map<String, String> detailMap;
 
     private List<String> categoryList;

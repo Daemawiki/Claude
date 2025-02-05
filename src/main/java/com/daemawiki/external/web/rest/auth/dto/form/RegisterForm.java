@@ -15,6 +15,6 @@ public record RegisterForm(
         Password password,
         Generation generation,
         Major major,
-        List<StudentInfo> StudentInfoList
+        List<StudentInfo> studentInfoList
 ) {
 }

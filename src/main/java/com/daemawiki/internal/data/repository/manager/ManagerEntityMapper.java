@@ -1,6 +1,7 @@
 package com.daemawiki.internal.data.repository.manager;
 
 import com.daemawiki.internal.core.domain.model.dto.manager.ManagerInternalDTO;
+import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -15,9 +16,11 @@ import static org.mapstruct.ReportingPolicy.IGNORE;
 )
 interface ManagerEntityMapper {
 
+    @Mapping(target = "updateUserId", ignore = true) // mapstruct method 오류 탐지 방지
+
     @Mapping(
             target = "managerId",
-            expression = "java(ManagerId.create(source.getManagerId()))"
+            expression = "java(ManagerId.create(source.getId()))"
     )
     @Mapping(
             target = "email",
@@ -30,17 +33,17 @@ interface ManagerEntityMapper {
     ManagerInternalDTO toDTO(ManagerEntity source);
 
     @Mapping(
-            target = "managerId",
-            expression = "java(source.value())",
+            target = "id",
+            expression = "java(source.managerId().value())",
             ignore = true
     )
     @Mapping(
             target = "email",
-            expression = "java(source.value())"
+            expression = "java(source.email().value())"
     )
     @Mapping(
             target = "userId",
-            expression = "java(source.value())",
+            expression = "java(source.userId().value())",
             ignore = true
     )
     ManagerEntity toEntity(ManagerInternalDTO source);

@@ -1,8 +1,31 @@
 package com.daemawiki.internal.data.repository.document;
 
 import com.daemawiki.internal.core.domain.model.dto.document.DocumentInternalDTO;
+import com.daemawiki.internal.core.domain.model.primitive.document.DocumentCategory;
+import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
+import com.daemawiki.internal.core.domain.model.primitive.document.DocumentType;
+import com.daemawiki.internal.core.domain.model.primitive.document.content.TextBody;
+import com.daemawiki.internal.core.domain.model.primitive.document.detail.Description;
+import com.daemawiki.internal.core.domain.model.primitive.document.detail.DetailKey;
+import com.daemawiki.internal.core.domain.model.primitive.document.title.MainTitle;
+import com.daemawiki.internal.core.domain.model.primitive.document.title.SubTitle;
+import com.daemawiki.internal.core.domain.model.primitive.shard.date.CreatedDateTime;
+import com.daemawiki.internal.core.domain.model.primitive.shard.date.LastModifiedDateTime;
+import com.daemawiki.internal.core.domain.model.primitive.shard.info.Version;
+import com.daemawiki.internal.core.domain.model.primitive.shard.info.ViewCount;
+import com.daemawiki.internal.core.domain.model.primitive.user.UserId;
+import com.daemawiki.internal.core.domain.model.primitive.user.personal.Name;
+import com.daemawiki.internal.core.domain.model.value.document.DocumentContent;
+import com.daemawiki.internal.core.domain.model.value.document.DocumentEditor;
+import com.daemawiki.internal.core.domain.model.value.document.DocumentInfo;
+import com.daemawiki.internal.core.domain.model.value.document.DocumentTitle;
+import com.daemawiki.internal.core.domain.model.value.shard.date.EditedDateTime;
+import com.daemawiki.internal.core.domain.model.value.user.Editor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+
+import java.time.LocalDateTime;
+import java.util.stream.Collectors;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 import static org.mapstruct.ReportingPolicy.ERROR;
@@ -11,7 +34,31 @@ import static org.mapstruct.ReportingPolicy.IGNORE;
 @Mapper(
         componentModel = SPRING,
         unmappedTargetPolicy = ERROR,
-        unmappedSourcePolicy = IGNORE
+        unmappedSourcePolicy = IGNORE,
+        imports = {
+                Collectors.class,
+                LocalDateTime.class,
+                DocumentTitle.class,
+                MainTitle.class,
+                SubTitle.class,
+                DocumentCategory.class,
+                DocumentId.class,
+                DocumentType.class,
+                Description.class,
+                DetailKey.class,
+                TextBody.class,
+                DocumentContent.class,
+                DocumentEditor.class,
+                DocumentInfo.class,
+                ViewCount.class,
+                Version.class,
+                Editor.class,
+                UserId.class,
+                Name.class,
+                EditedDateTime.class,
+                CreatedDateTime.class,
+                LastModifiedDateTime.class
+        }
 )
 interface DocumentEntityMapper {
 
@@ -29,32 +76,27 @@ interface DocumentEntityMapper {
     )
     @Mapping(
             target = "content",
-            expression = "java(source.documentContent().textBody().value())",
-            defaultValue = " "
+            expression = "java(source.documentContent().textBody().value())"
     )
     @Mapping(
             target = "detailMap",
             expression = "java(source.documentContent().detailMap().entrySet().stream().collect(Collectors.toMap("
                         + "e -> e.getKey().value(), "
                         + "e -> e.getValue().value()"
-                    + ")))",
-            defaultExpression = "java(Map.of())"
+                    + ")))"
     )
     @Mapping(
             target = "categoryList",
             expression = "java(source.categoryList().stream()" +
-                    ".map(e -> e.category()).toList())",
-            defaultExpression = "java(new LinkedList<>())"
+                    ".map(e -> e.value()).toList())"
     )
     @Mapping(
             target = "viewCount",
-            expression = "java(source.documentInfo().viewCount().value())",
-            defaultValue = "0"
+            expression = "java(source.documentInfo().viewCount().value())"
     )
     @Mapping(
             target = "version",
-            expression = "java(source.documentInfo().version().value())",
-            defaultValue = "0"
+            expression = "java(source.documentInfo().version().value())"
     )
     @Mapping(
             target = "type",
@@ -63,24 +105,22 @@ interface DocumentEntityMapper {
     @Mapping(
             target = "editedDateTime",
             expression = "java(DocumentEntity.EditedDateTime.create("
-                        + "source.editedDateTime().createdDateTime().value(), "
-                        + "source.editedDateTime().lastModifiedDateTime().value()"
-                    + "))",
-            defaultExpression = "java(EditedDateTime.create())"
+                        + "LocalDateTime.parse(source.editedDateTime().createdDateTime().value()),"
+                        + "LocalDateTime.parse(source.editedDateTime().lastModifiedDateTime().value())"
+                    + "))"
     )
     @Mapping(
             target = "owner",
             expression = "java(DocumentEntity.Editor.create("
-                        + "source.documentEditor().owner().name(), "
-                        + "source.documentEditor().owner().userId()"
+                        + "source.documentEditor().owner().name().value(), "
+                        + "source.documentEditor().owner().userId().value()"
                     + "))"
     )
     @Mapping(
             target = "editorSet",
             expression = "java(source.documentEditor().editorSet().stream().map("
-                        + "e -> DocumentEntity.Editor.create(e.name(), e.userId())"
-                    + ").collect(Collectors.toSet()))",
-            defaultExpression = "java(new HashSet<>())"
+                        + "e -> DocumentEntity.Editor.create(e.name().value(), e.userId().value())"
+                    + ").collect(Collectors.toSet()))"
     )
     DocumentEntity toEntity(DocumentInternalDTO source);
 
@@ -131,8 +171,8 @@ interface DocumentEntityMapper {
     @Mapping(
             target = "documentEditor",
             expression = "java(DocumentEditor.create("
-                    + "Editor.create(source.getOwner().name(), source.getOwner().userId()), "
-                    + "source.getEditorSet().stream().map(e -> Editor.create(e.name(), e.userId())).collect(Collectors.toSet())"
+                    + "Editor.create(Name.create(source.getOwner().name()), UserId.create(source.getOwner().userId())), "
+                    + "source.getEditorSet().stream().map(e -> Editor.create(Name.create(e.name()), UserId.create(e.userId()))).collect(Collectors.toSet())"
                     + "))"
     )
     DocumentInternalDTO toDTO(DocumentEntity source);
