@@ -38,3 +38,4 @@ mail:
 app:
   cors:
     allow-hosts: ${ALLOW_HOSTS}
+  issuer: ${ISSUER}
