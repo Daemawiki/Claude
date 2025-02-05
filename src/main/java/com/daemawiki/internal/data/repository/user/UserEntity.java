@@ -42,23 +42,11 @@ class UserEntity {
 
     private String role;
 
-//    public boolean isAdmin() {
-//        return role.equals(UserRole.ADMIN);
-//    }
-//
-//    public void setRoleToMop() {
-//        this.role = UserRole.MOP;
-//    }
-//
-//    public void setRoleToManager() {
-//        this.role = UserRole.MANAGER;
-//    }
-
-    public void updateDocumentId(final String documentId) {
+    public void updateDocumentId(final String documentId) { // TODO: 2/4/25
         this.documentId = documentId;
     }
 
-    public void changePassword(final String password) {
+    public void changePassword(final String password) { // TODO: 2/4/25
         this.password = password;
     }
 
