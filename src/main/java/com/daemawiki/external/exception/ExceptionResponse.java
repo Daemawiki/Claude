@@ -24,7 +24,7 @@ public record ExceptionResponse(
         errorId = UUID.randomUUID().toString().substring(0, 7);
     }
 
-    public static ExceptionResponse ofCustomException(CustomException e) {
+    public static ExceptionResponse ofCustomException(final CustomException e) {
         return new ExceptionResponse(
                 e.getStatus().value(),
                 e.getMessage(),
@@ -33,7 +33,10 @@ public record ExceptionResponse(
         );
     }
 
-    public static ExceptionResponse ofSecurityError(HttpStatus status, String message) {
+    public static ExceptionResponse ofSecurityError(
+            final HttpStatus status,
+            final String message
+    ) {
         return new ExceptionResponse(
                 status.value(),
                 message,

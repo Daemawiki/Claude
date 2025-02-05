@@ -15,6 +15,7 @@ import reactor.core.publisher.Mono;
 class RegisterController {
 
     private final RegisterUseCase userRegisterUseCase;
+
     private final AuthDTOMapper dtoMapper;
 
     @PostMapping("/register")
