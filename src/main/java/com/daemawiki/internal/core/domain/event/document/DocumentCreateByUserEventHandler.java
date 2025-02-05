@@ -29,7 +29,7 @@ class DocumentCreateByUserEventHandler {
         final var document = DocumentInternalDTO.createByUserDto(user);
 
         documentRepository.save(document)
-                .map(d -> user.setDocumentId(d.documentId()))
+                .map(d -> user.updateDocumentId(d.documentId()))
                 .map(UserSaveEvent::create)
                 .doOnNext(applicationEventPublisher::publishEvent)
                 .subscribeOn(Schedulers.boundedElastic())

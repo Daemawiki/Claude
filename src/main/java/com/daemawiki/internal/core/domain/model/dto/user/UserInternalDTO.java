@@ -20,7 +20,7 @@ public record UserInternalDTO(
         RegistrationDate registrationDate
 ) {
 
-    public UserInternalDTO setDocumentId(final DocumentId documentId) {
+    public UserInternalDTO updateDocumentId(final DocumentId documentId) {
         return new UserInternalDTO(userId, userRole, personalData, documentId, studentInfoList, registrationDate);
     }
 
