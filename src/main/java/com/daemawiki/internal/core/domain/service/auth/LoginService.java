@@ -1,49 +1,35 @@
 package com.daemawiki.internal.core.domain.service.auth;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
+import com.daemawiki.external.security.paseto.Tokenizer;
+import com.daemawiki.external.web.rest.auth.dto.LoginResponse;
 import com.daemawiki.internal.core.domain.model.dto.auth.LoginDTO;
 import com.daemawiki.internal.core.domain.model.dto.user.UserInternalDTO;
 import com.daemawiki.internal.core.domain.model.primitive.auth.Password;
 import com.daemawiki.internal.core.usecase.auth.LoginUseCase;
-import com.daemawiki.archive.daemawiki.security.session.model.SessionModel;
-import com.daemawiki.archive.daemawiki.security.session.repository.SessionRepository;
 import com.daemawiki.internal.data.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-
-import java.net.InetSocketAddress;
 
 @Service
 @RequiredArgsConstructor
 class LoginService implements LoginUseCase {
 
-    private final SessionRepository sessionRepository;
-
     private final PasswordEncoder passwordEncoder;
 
     private final UserRepository userRepository;
 
-    @Override
-    public Mono<String> login(
-            final LoginDTO dto,
-            final ServerHttpRequest serverHttpRequest
-    ) {
-        return Mono.justOrEmpty(serverHttpRequest.getRemoteAddress())
-                .switchIfEmpty(Mono.error(CustomExceptionFactory.forbidden("현재 접속중인 네트워크가 불안정합니다.")))
-                .flatMap(remoteAddress -> createSession(dto, remoteAddress));
-    }
+    private final Tokenizer tokenizer;
 
-    private Mono<String> createSession(
-            final LoginDTO dto,
-            final InetSocketAddress remoteAddress
+    @Override
+    public Mono<LoginResponse> login(
+            final LoginDTO dto
     ) {
         return loginProcess(dto)
-                .map(user -> SessionModel.of(remoteAddress.toString(), user.personalData().email().value()))
-                .flatMap(sessionRepository::save)
-                .map(SessionModel::id);
+                .flatMap(user -> tokenizer.generate(user.personalData().email().value())
+                            .map(token -> LoginResponse.create(token, user.personalData().name(), user.userRole())));
     }
 
     private Mono<UserInternalDTO> loginProcess(final LoginDTO dto) {
