@@ -15,12 +15,12 @@ import java.util.concurrent.Executors;
 class AsyncConfig implements AsyncConfigurer {
 
     @Bean(name = "taskExecutor")
-    public Executor taskExecutor() {
+    Executor taskExecutor() {
         return new VirtualThreadTaskExecutor("Daemawiki-virtual-");
     }
 
     @Bean(destroyMethod = "close")
-    public ExecutorService virtualThreadExecutor() {
+    ExecutorService virtualThreadExecutor() {
         return Executors.newVirtualThreadPerTaskExecutor();
     }
 
