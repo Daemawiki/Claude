@@ -1,6 +1,7 @@
 package com.daemawiki.internal.core.domain.service.auth;
 
 import com.daemawiki.internal.core.domain.model.dto.auth.RegisterDTO;
+import com.daemawiki.internal.core.domain.model.dto.manager.ManagerInternalDTO;
 import com.daemawiki.internal.core.domain.model.dto.user.UserInternalDTO;
 import com.daemawiki.internal.core.domain.model.event.document.DocumentCreateByUserEvent;
 import com.daemawiki.internal.core.domain.model.primitive.user.UserRole;
@@ -8,7 +9,6 @@ import com.daemawiki.internal.core.domain.model.primitive.user.personal.Email;
 import com.daemawiki.internal.core.usecase.auth.RegisterUseCase;
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
 import com.daemawiki.internal.data.repository.mail.AuthMailRepository;
-import com.daemawiki.internal.data.repository.manager.ManagerEntity;
 import com.daemawiki.internal.data.repository.manager.ManagerRepository;
 import com.daemawiki.internal.data.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -81,20 +81,20 @@ class RegisterService implements RegisterUseCase {
 
     private Mono<UserInternalDTO> createManagerUser(
             final RegisterDTO dto,
-            final ManagerEntity manager
+            final ManagerInternalDTO managerDto
     ) {
         final UserInternalDTO user = createUserEntity(dto, UserRole.MANAGER);
 
-        return saveUserAndUpdateManager(user, manager);
+        return saveUserAndUpdateManager(user, managerDto);
     }
 
     private Mono<UserInternalDTO> saveUserAndUpdateManager(
             final UserInternalDTO user,
-            final ManagerEntity manager
+            final ManagerInternalDTO managerDto
     ) {
         return userRepository.save(user)
-                .doOnNext(savedUser -> manager.addUserId(savedUser.userId().value()))
-                .then(managerRepository.save(manager))
+                .map(savedUser -> managerDto.updateUserId(savedUser.userId()))
+                .then(managerRepository.save(managerDto))
                 .thenReturn(user);
     }
 

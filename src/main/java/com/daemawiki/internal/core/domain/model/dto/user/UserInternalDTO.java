@@ -20,6 +20,18 @@ public record UserInternalDTO(
         RegistrationDate registrationDate
 ) {
 
+    public UserInternalDTO updateRoleToManager() {
+        return updateUserRole(UserRole.MANAGER);
+    }
+
+    public UserInternalDTO updateRoleToMop() {
+        return updateUserRole(UserRole.MOP);
+    }
+
+    private UserInternalDTO updateUserRole(final UserRole userRole) {
+        return new UserInternalDTO(userId, userRole, personalData, documentId, studentInfoList, registrationDate);
+    }
+
     public UserInternalDTO updateDocumentId(final DocumentId documentId) {
         return new UserInternalDTO(userId, userRole, personalData, documentId, studentInfoList, registrationDate);
     }
