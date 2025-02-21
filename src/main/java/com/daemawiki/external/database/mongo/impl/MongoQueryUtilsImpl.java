@@ -14,10 +14,11 @@ class MongoQueryUtilsImpl implements MongoQueryUtils {
     private final ReactiveMongoTemplate reactiveMongoTemplate;
 
     @Override
-    public <T> Flux<T> find(Query query, Class<T> targetClass) {
-        return reactiveMongoTemplate.find(
-                query, targetClass
-        );
+    public <T> Flux<T> find(
+            final Query query,
+            final Class<T> targetClass
+    ) {
+        return reactiveMongoTemplate.find(query, targetClass);
     }
 
 }
