@@ -12,6 +12,10 @@ public interface RedisOperation<V> {
 
     Mono<Long> delete(String key);
 
-    Mono<Boolean> save(String key, V value, Duration expiration);
+    Mono<Boolean> save(
+            String key,
+            V value,
+            Duration expiration
+    );
 
 }
