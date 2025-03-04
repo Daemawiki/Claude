@@ -6,6 +6,10 @@ import reactor.core.publisher.Mono;
 
 public class DocumentOperationHandler {
 
+    private DocumentOperationHandler() {
+        // No instances.
+    }
+
     public static Mono<Void> handleOperation(
             final DocumentSocketEditOperation operation,
             final FlowContext.Flow flow

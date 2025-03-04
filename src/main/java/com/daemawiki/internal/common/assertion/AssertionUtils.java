@@ -6,6 +6,10 @@ import java.util.regex.Pattern;
 
 public final class AssertionUtils {
 
+    private AssertionUtils() {
+        // No instances.
+    }
+
     public static void assertArgumentNotEmpty(
             final String string,
             final String message
