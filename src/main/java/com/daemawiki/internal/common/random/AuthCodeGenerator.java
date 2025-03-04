@@ -4,8 +4,12 @@ import java.security.SecureRandom;
 import java.util.Base64;
 
 public class AuthCodeGenerator {
-
+    
     private static final SecureRandom SECURE_RANDOM = new SecureRandom();
+
+    private AuthCodeGenerator() {
+        // No instances.
+    }
 
     public static String generate(final int length) {
         final var randomBytes = new byte[length];
