@@ -15,7 +15,7 @@ class UserRepositoryImpl extends UserAbstractRepository {
 
     private final MongoQueryUtils mongoQueryUtils;
 
-    public UserRepositoryImpl(
+    UserRepositoryImpl(
             final UserMongoRepository userMongoRepository,
             final UserEntityMapper userEntityMapper,
             final MongoQueryUtils mongoQueryUtils
