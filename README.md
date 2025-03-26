@@ -23,10 +23,3 @@ Follow these steps to set up the project locally:
 - Redis/MongoDB setup
 
 ---
-
-## 🤝 Contributing
-
-We welcome contributions of all kinds!
-
-- **Report Issues:** Found a bug or have a feature request? Open an [issue on GitHub](https://github.com/daemawiki/claude/issues).
-- **Contribute Code:** Check out our [Contributor Eng Guide](https://persistent-saturn-ace.notion.site/how-to-contributing-daemawiki-eng), [Contributor Kor Guide](https://persistent-saturn-ace.notion.site/66fe1d2fcd6740f083843fe5df3eda70?pvs=73) for initial guidelines, and explore our good first issues for beginner-friendly tasks to tackle first.
