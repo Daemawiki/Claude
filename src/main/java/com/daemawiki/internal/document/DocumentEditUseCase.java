@@ -3,7 +3,7 @@ package com.daemawiki.internal.document;
 import com.daemawiki.internal.document.primitive.DocumentId;
 import com.daemawiki.internal.document.vo.DocumentContent;
 import com.daemawiki.internal.document.vo.DocumentTitle;
-import com.daemawiki.internal.core.domain.model.value.user.Editor;
+import com.daemawiki.internal.user.vo.Editor;
 import reactor.core.publisher.Mono;
 
 import java.util.Set;

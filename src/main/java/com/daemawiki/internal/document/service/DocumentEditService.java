@@ -2,13 +2,13 @@ package com.daemawiki.internal.document.service;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
 import com.daemawiki.internal.document.dto.DocumentInternalDTO;
-import com.daemawiki.internal.core.domain.model.dto.user.UserInternalDTO;
+import com.daemawiki.internal.user.dto.UserInternalDTO;
 import com.daemawiki.internal.document.primitive.DocumentId;
 import com.daemawiki.internal.document.vo.DocumentContent;
 import com.daemawiki.internal.document.vo.DocumentTitle;
-import com.daemawiki.internal.core.domain.model.value.user.Editor;
+import com.daemawiki.internal.user.vo.Editor;
 import com.daemawiki.internal.document.DocumentEditUseCase;
-import com.daemawiki.internal.core.domain.component.auth.CurrentUser;
+import com.daemawiki.internal.user.component.CurrentUser;
 import com.daemawiki.internal.document.repository.DocumentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;

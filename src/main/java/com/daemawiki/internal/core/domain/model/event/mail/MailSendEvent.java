@@ -1,6 +1,6 @@
 package com.daemawiki.internal.core.domain.model.event.mail;
 
-import com.daemawiki.internal.core.domain.model.primitive.user.personal.Email;
+import com.daemawiki.internal.user.primitive.personal.Email;
 
 public record MailSendEvent(
         Email to

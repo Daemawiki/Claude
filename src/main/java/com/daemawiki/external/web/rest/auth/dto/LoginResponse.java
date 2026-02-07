@@ -1,8 +1,8 @@
 package com.daemawiki.external.web.rest.auth.dto;
 
-import com.daemawiki.internal.core.domain.model.primitive.auth.Token;
-import com.daemawiki.internal.core.domain.model.primitive.user.UserRole;
-import com.daemawiki.internal.core.domain.model.primitive.user.personal.Name;
+import com.daemawiki.internal.user.primitive.Token;
+import com.daemawiki.internal.user.primitive.UserRole;
+import com.daemawiki.internal.user.primitive.personal.Name;
 
 public record LoginResponse(
         Token token,

@@ -13,14 +13,14 @@ import com.daemawiki.internal.core.domain.model.primitive.shard.date.CreatedDate
 import com.daemawiki.internal.core.domain.model.primitive.shard.date.LastModifiedDateTime;
 import com.daemawiki.internal.core.domain.model.primitive.shard.info.Version;
 import com.daemawiki.internal.core.domain.model.primitive.shard.info.ViewCount;
-import com.daemawiki.internal.core.domain.model.primitive.user.UserId;
-import com.daemawiki.internal.core.domain.model.primitive.user.personal.Name;
+import com.daemawiki.internal.user.primitive.UserId;
+import com.daemawiki.internal.user.primitive.personal.Name;
 import com.daemawiki.internal.document.vo.DocumentContent;
 import com.daemawiki.internal.document.vo.DocumentEditor;
 import com.daemawiki.internal.document.vo.DocumentInfo;
 import com.daemawiki.internal.document.vo.DocumentTitle;
 import com.daemawiki.internal.core.domain.model.value.shard.date.EditedDateTime;
-import com.daemawiki.internal.core.domain.model.value.user.Editor;
+import com.daemawiki.internal.user.vo.Editor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

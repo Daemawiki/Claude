@@ -2,7 +2,7 @@ package com.daemawiki.internal.document.service;
 
 import com.daemawiki.internal.document.dto.DocumentInternalDTO;
 import com.daemawiki.internal.document.DocumentCreateUseCase;
-import com.daemawiki.internal.core.domain.component.auth.CurrentUser;
+import com.daemawiki.internal.user.component.CurrentUser;
 import com.daemawiki.internal.document.repository.DocumentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

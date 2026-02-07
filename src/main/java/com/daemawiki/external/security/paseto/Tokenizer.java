@@ -1,6 +1,6 @@
 package com.daemawiki.external.security.paseto;
 
-import com.daemawiki.internal.core.domain.model.primitive.auth.Token;
+import com.daemawiki.internal.user.primitive.Token;
 import reactor.core.publisher.Mono;
 
 public interface Tokenizer {

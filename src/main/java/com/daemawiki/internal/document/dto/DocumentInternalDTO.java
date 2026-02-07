@@ -1,6 +1,6 @@
 package com.daemawiki.internal.document.dto;
 
-import com.daemawiki.internal.core.domain.model.dto.user.UserInternalDTO;
+import com.daemawiki.internal.user.dto.UserInternalDTO;
 import com.daemawiki.internal.document.primitive.DocumentCategory;
 import com.daemawiki.internal.document.primitive.DocumentId;
 import com.daemawiki.internal.document.primitive.DocumentType;
@@ -9,16 +9,16 @@ import com.daemawiki.internal.document.primitive.detail.Description;
 import com.daemawiki.internal.document.primitive.detail.DetailKey;
 import com.daemawiki.internal.document.primitive.title.MainTitle;
 import com.daemawiki.internal.document.primitive.title.SubTitle;
-import com.daemawiki.internal.core.domain.model.primitive.user.UserId;
-import com.daemawiki.internal.core.domain.model.primitive.user.personal.Generation;
-import com.daemawiki.internal.core.domain.model.primitive.user.personal.Major;
-import com.daemawiki.internal.core.domain.model.primitive.user.personal.Name;
+import com.daemawiki.internal.user.primitive.UserId;
+import com.daemawiki.internal.user.primitive.personal.Generation;
+import com.daemawiki.internal.user.primitive.personal.Major;
+import com.daemawiki.internal.user.primitive.personal.Name;
 import com.daemawiki.internal.document.vo.DocumentContent;
 import com.daemawiki.internal.document.vo.DocumentEditor;
 import com.daemawiki.internal.document.vo.DocumentInfo;
 import com.daemawiki.internal.document.vo.DocumentTitle;
 import com.daemawiki.internal.core.domain.model.value.shard.date.EditedDateTime;
-import com.daemawiki.internal.core.domain.model.value.user.Editor;
+import com.daemawiki.internal.user.vo.Editor;
 import lombok.Builder;
 
 import java.util.HashSet;

@@ -1,12 +1,11 @@
 package com.daemawiki.external.security.paseto;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
-import com.daemawiki.internal.core.domain.model.primitive.auth.Token;
-import com.daemawiki.internal.core.domain.model.primitive.user.personal.Email;
-import com.daemawiki.internal.data.repository.user.UserRepository;
+import com.daemawiki.internal.user.primitive.Token;
+import com.daemawiki.internal.user.primitive.personal.Email;
+import com.daemawiki.internal.user.repository.UserRepository;
 import dev.paseto.jpaseto.Claims;
 import dev.paseto.jpaseto.Paseto;
-import dev.paseto.jpaseto.PasetoException;
 import dev.paseto.jpaseto.PasetoParser;
 import dev.paseto.jpaseto.Pasetos;
 import dev.paseto.jpaseto.Version;

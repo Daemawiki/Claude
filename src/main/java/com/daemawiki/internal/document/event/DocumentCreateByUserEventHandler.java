@@ -1,8 +1,8 @@
 package com.daemawiki.internal.document.event;
 
 import com.daemawiki.internal.document.dto.DocumentInternalDTO;
-import com.daemawiki.internal.core.domain.model.dto.user.UserInternalDTO;
-import com.daemawiki.internal.core.domain.model.event.user.UserSaveEvent;
+import com.daemawiki.internal.user.dto.UserInternalDTO;
+import com.daemawiki.internal.user.event.UserSaveEvent;
 import com.daemawiki.internal.document.repository.DocumentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

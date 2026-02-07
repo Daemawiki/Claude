@@ -1,7 +1,7 @@
 package com.daemawiki.internal.core.domain.model.dto.mail;
 
 import com.daemawiki.internal.core.domain.model.primitive.mail.AuthCode;
-import com.daemawiki.internal.core.domain.model.primitive.user.personal.Email;
+import com.daemawiki.internal.user.primitive.personal.Email;
 
 public record AuthCodeDTO(
         Email email,

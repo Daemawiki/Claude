@@ -2,7 +2,7 @@ package com.daemawiki.internal.core.domain.service.mail;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
 import com.daemawiki.internal.core.domain.model.primitive.mail.AuthCode;
-import com.daemawiki.internal.core.domain.model.primitive.user.personal.Email;
+import com.daemawiki.internal.user.primitive.personal.Email;
 import com.daemawiki.internal.core.usecase.mail.MailVerifyUseCase;
 import com.daemawiki.internal.data.repository.mail.AuthCodeRepository;
 import com.daemawiki.internal.data.repository.mail.AuthMailRepository;

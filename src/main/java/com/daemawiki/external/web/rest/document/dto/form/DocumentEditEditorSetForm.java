@@ -1,6 +1,6 @@
 package com.daemawiki.external.web.rest.document.dto.form;
 
-import com.daemawiki.internal.core.domain.model.value.user.Editor;
+import com.daemawiki.internal.user.vo.Editor;
 
 import java.util.Set;
 
