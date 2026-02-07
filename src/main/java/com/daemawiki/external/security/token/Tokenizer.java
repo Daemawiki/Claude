@@ -1,0 +1,10 @@
+package com.daemawiki.external.security.token;
+
+import com.daemawiki.internal.user.primitive.Token;
+import reactor.core.publisher.Mono;
+
+public interface Tokenizer {
+
+    Mono<Token> generate(String subject);
+
+}

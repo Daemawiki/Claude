@@ -1,0 +1,32 @@
+package com.daemawiki.internal.document.dto;
+
+import com.daemawiki.internal.document.primitive.DocumentId;
+import com.daemawiki.internal.common.primitive.shard.ElementId;
+import com.daemawiki.internal.common.primitive.shard.OperationType;
+import com.daemawiki.internal.user.primitive.personal.Name;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.time.Instant;
+
+/**
+ * 해당 클래스는 메모리 사용량, 최적화를 위해 외부에서도 사용할 수 있는 예외적인 클래스입니다.
+ */
+public record DocumentSocketEditOperation(
+    DocumentId documentId,
+    Name name,
+    OperationType type,
+    @JsonProperty("lastElementId")
+    ElementId lastElementId,
+    String content,
+    long timestamp
+) {
+
+    public DocumentSocketEditOperation {
+        timestamp = Instant.now().getEpochSecond();
+    }
+
+    public DocumentSocketEditOperation setUserName(final Name name) {
+        return new DocumentSocketEditOperation(documentId, name, type, lastElementId, content, timestamp);
+    }
+
+}

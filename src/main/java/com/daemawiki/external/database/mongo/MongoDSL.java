@@ -1,6 +1,6 @@
 package com.daemawiki.external.database.mongo;
 
-import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest;
+import com.daemawiki.internal.common.value.shard.PagingRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;

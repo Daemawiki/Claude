@@ -1,13 +1,13 @@
 package com.daemawiki.internal.common.cache;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import reactor.core.publisher.Mono;
 
 import java.util.concurrent.TimeUnit;
 
-public class ReactiveCaffeineCache<K extends DomainPrimitive.StringDP, V>  implements ReactiveCache<K, V> {
+public class ReactiveCaffeineCache<K extends DomainPrimitive<String>, V>  implements ReactiveCache<K, V> {
 
     private final Cache<String, V> cache;
 

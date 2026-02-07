@@ -1,0 +1,20 @@
+package com.daemawiki.internal.user.dto;
+
+import com.daemawiki.internal.user.primitive.Password;
+import com.daemawiki.internal.user.primitive.personal.Email;
+import com.daemawiki.internal.user.primitive.personal.Generation;
+import com.daemawiki.internal.user.primitive.personal.Major;
+import com.daemawiki.internal.user.primitive.personal.Name;
+import com.daemawiki.internal.user.vo.StudentInfo;
+
+import java.util.List;
+
+public record RegisterDTO(
+        Name name,
+        Email email,
+        Password password,
+        Generation generation,
+        Major major,
+        List<StudentInfo> studentInfoList
+) {
+}

@@ -1,8 +1,8 @@
 package com.daemawiki.internal.common.cache;
 
 import com.daemawiki.external.database.redis.storage.RedisOperation;
-import com.daemawiki.internal.core.domain.model.dto.document.DocumentInternalDTO;
-import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
+import com.daemawiki.internal.document.dto.DocumentInternalDTO;
+import com.daemawiki.internal.document.primitive.DocumentId;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;

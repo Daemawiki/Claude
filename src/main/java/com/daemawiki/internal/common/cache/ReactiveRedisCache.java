@@ -1,12 +1,12 @@
 package com.daemawiki.internal.common.cache;
 
 import com.daemawiki.external.database.redis.storage.RedisOperation;
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
 
-class ReactiveRedisCache<K extends DomainPrimitive.StringDP, V> implements ReactiveCache<K, V> {
+class ReactiveRedisCache<K extends DomainPrimitive<String>, V> implements ReactiveCache<K, V> {
 
     private final RedisOperation<V> redisOperation;
     private final Duration expiration;

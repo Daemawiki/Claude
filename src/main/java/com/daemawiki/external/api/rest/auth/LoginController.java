@@ -1,0 +1,30 @@
+package com.daemawiki.external.api.rest.auth;
+
+import com.daemawiki.external.api.annotation.AuthRestApi;
+import com.daemawiki.external.api.rest.auth.dto.LoginResponse;
+import com.daemawiki.external.api.rest.auth.dto.LoginForm;
+import com.daemawiki.internal.user.dto.LoginDTO;
+import com.daemawiki.internal.user.LoginUseCase;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import reactor.core.publisher.Mono;
+
+@AuthRestApi
+@RequiredArgsConstructor
+class LoginController {
+
+    private final LoginUseCase loginUseCase;
+
+    private final AuthDTOMapper dtoMapper;
+
+    @PostMapping("/login")
+    Mono<LoginResponse> login(
+            @RequestBody final LoginForm loginForm
+    ) {
+        final LoginDTO dto = dtoMapper.toLoginDTO(loginForm);
+
+        return loginUseCase.login(dto);
+    }
+
+}
