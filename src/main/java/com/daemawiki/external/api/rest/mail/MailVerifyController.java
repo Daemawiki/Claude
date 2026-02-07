@@ -1,7 +1,6 @@
 package com.daemawiki.external.api.rest.mail;
 
 import com.daemawiki.external.api.annotation.MailRestApi;
-import com.daemawiki.internal.mail.MailVerifyUseCase;
 import com.daemawiki.internal.mail.primitive.AuthCode;
 import com.daemawiki.internal.user.primitive.personal.Email;
 import com.fasterxml.jackson.annotation.JsonProperty;

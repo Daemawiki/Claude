@@ -1,7 +1,6 @@
 package com.daemawiki.internal.mail.service;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
-import com.daemawiki.internal.mail.MailVerifyUseCase;
 import com.daemawiki.internal.mail.primitive.AuthCode;
 import com.daemawiki.internal.mail.repository.AuthCodeRepository;
 import com.daemawiki.internal.mail.repository.AuthMailRepository;
