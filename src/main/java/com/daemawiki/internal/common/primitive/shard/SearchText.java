@@ -1,6 +1,6 @@
-package com.daemawiki.internal.core.domain.model.primitive.shard.search;
+package com.daemawiki.internal.common.primitive.shard;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgumentNotEmpty;
@@ -8,7 +8,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgum
 public record SearchText(
         @JsonValue
         String searchText
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     public SearchText {
         assertArgumentNotEmpty(searchText, "검색할 단어가 입력되지 않았습니다."); // TODO: 2/4/25 error message 한 번 더 고민

@@ -4,7 +4,7 @@ import com.daemawiki.internal.user.primitive.student.AcademicYear;
 import com.daemawiki.internal.user.primitive.student.ClassNumber;
 import com.daemawiki.internal.user.primitive.student.StudentGrade;
 import com.daemawiki.internal.user.primitive.student.StudentNumber;
-import com.daemawiki.internal.core.domain.model.value.ValueObject;
+import com.daemawiki.internal.common.value.ValueObject;
 
 public record StudentInfo(
         AcademicYear academicYear,

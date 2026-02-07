@@ -17,7 +17,7 @@ import com.daemawiki.internal.document.vo.DocumentContent;
 import com.daemawiki.internal.document.vo.DocumentEditor;
 import com.daemawiki.internal.document.vo.DocumentInfo;
 import com.daemawiki.internal.document.vo.DocumentTitle;
-import com.daemawiki.internal.core.domain.model.value.shard.date.EditedDateTime;
+import com.daemawiki.internal.common.value.shard.EditedDateTime;
 import com.daemawiki.internal.user.vo.Editor;
 import lombok.Builder;
 

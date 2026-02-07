@@ -2,7 +2,7 @@ package com.daemawiki.internal.document.vo;
 
 import com.daemawiki.internal.document.primitive.title.MainTitle;
 import com.daemawiki.internal.document.primitive.title.SubTitle;
-import com.daemawiki.internal.core.domain.model.value.ValueObject;
+import com.daemawiki.internal.common.value.ValueObject;
 
 public record DocumentTitle(
         MainTitle mainTitle,

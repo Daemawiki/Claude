@@ -1,6 +1,6 @@
-package com.daemawiki.internal.core.domain.model.primitive.shard.date;
+package com.daemawiki.internal.common.primitive.shard;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.time.LocalDateTime;
@@ -10,7 +10,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgum
 public record LastModifiedDateTime(
         @JsonValue
         String lastModifiedDateTime
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     public LastModifiedDateTime {
         assertArgumentNotEmpty(lastModifiedDateTime, "마지막 수정 날짜가 입력되지 않았습니다");

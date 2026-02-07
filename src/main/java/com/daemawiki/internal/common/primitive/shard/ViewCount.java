@@ -1,6 +1,6 @@
-package com.daemawiki.internal.core.domain.model.primitive.shard.info;
+package com.daemawiki.internal.common.primitive.shard;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgumentNotNull;
@@ -8,7 +8,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgum
 public record ViewCount(
         @JsonValue
         Long viewCount
-) implements DomainPrimitive.LongDP {
+) implements DomainPrimitive<Long> {
 
     public ViewCount {
         assertArgumentNotNull(viewCount, "조회수가 입력되지 않았습니다");

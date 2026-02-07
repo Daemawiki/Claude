@@ -1,6 +1,6 @@
 package com.daemawiki.internal.user.primitive.personal;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.time.Year;
@@ -12,7 +12,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgum
 public record Generation(
         @JsonValue
         Integer generation
-) implements DomainPrimitive.IntegerDP {
+) implements DomainPrimitive<Integer> {
 
     public Generation {
         assertArgumentNotNull(generation, "기수가 입력되지 않았습니다.");

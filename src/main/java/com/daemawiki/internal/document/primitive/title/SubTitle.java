@@ -1,6 +1,6 @@
 package com.daemawiki.internal.document.primitive.title;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -10,7 +10,7 @@ public record SubTitle(
         @JsonValue
         @JsonProperty("sub")
         String subTitle
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     public SubTitle {
         assertArgumentNotNull(subTitle, "문서의 부제목이 입력되지 않았습니다");

@@ -1,6 +1,6 @@
 package com.daemawiki.internal.user.primitive;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.regex.Pattern;
@@ -12,7 +12,7 @@ import static com.daemawiki.internal.common.assertion.RegexUtils.PASSWORD;
 public record Password(
         @JsonValue
         String password
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     private static final Pattern PASSWORD_REGEX = Pattern.compile(PASSWORD.getRegex(8, 20));
 

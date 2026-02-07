@@ -5,7 +5,7 @@ import com.daemawiki.external.database.mongo.MongoQueryUtils;
 import com.daemawiki.internal.user.dto.UserInternalDTO;
 import com.daemawiki.internal.user.primitive.personal.Generation;
 import com.daemawiki.internal.user.primitive.personal.Major;
-import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest;
+import com.daemawiki.internal.common.value.shard.PagingRequest;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;

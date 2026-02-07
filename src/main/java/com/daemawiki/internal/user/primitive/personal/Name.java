@@ -1,6 +1,6 @@
 package com.daemawiki.internal.user.primitive.personal;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.regex.Pattern;
@@ -12,7 +12,7 @@ import static com.daemawiki.internal.common.assertion.RegexUtils.ALLOWED_ONLY_KO
 public record Name(
         @JsonValue
         String name
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     private static final Pattern NAME_REGEX = Pattern.compile(ALLOWED_ONLY_KOR.getRegex(2, 8));
     private static final Name EMPTY_INSTANCE = create("");

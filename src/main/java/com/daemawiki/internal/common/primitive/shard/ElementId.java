@@ -1,6 +1,6 @@
-package com.daemawiki.internal.core.domain.model.primitive.shard;
+package com.daemawiki.internal.common.primitive.shard;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgumentNotNull;
@@ -8,7 +8,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgum
 public record ElementId(
         @JsonValue
         Integer elementId
-) implements DomainPrimitive.IntegerDP {
+) implements DomainPrimitive<Integer> {
 
     public ElementId {
         assertArgumentNotNull(elementId, "요소의 아이디가 입력되지 않았습니다.");

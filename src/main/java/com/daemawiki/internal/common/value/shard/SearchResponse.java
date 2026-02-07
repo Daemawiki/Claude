@@ -1,7 +1,7 @@
-package com.daemawiki.internal.core.domain.model.value.shard.search;
+package com.daemawiki.internal.common.value.shard;
 
-import com.daemawiki.internal.core.domain.model.primitive.shard.paging.PageNumber;
-import com.daemawiki.internal.core.domain.model.primitive.shard.paging.SizeNumber;
+import com.daemawiki.internal.common.primitive.shard.PageNumber;
+import com.daemawiki.internal.common.primitive.shard.SizeNumber;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;

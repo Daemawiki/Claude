@@ -3,7 +3,7 @@ package com.daemawiki.internal.document.vo;
 import com.daemawiki.internal.document.primitive.content.TextBody;
 import com.daemawiki.internal.document.primitive.detail.Description;
 import com.daemawiki.internal.document.primitive.detail.DetailKey;
-import com.daemawiki.internal.core.domain.model.value.ValueObject;
+import com.daemawiki.internal.common.value.ValueObject;
 
 import java.util.Map;
 

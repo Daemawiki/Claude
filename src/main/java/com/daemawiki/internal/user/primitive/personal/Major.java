@@ -1,7 +1,7 @@
 package com.daemawiki.internal.user.primitive.personal;
 
 import com.daemawiki.internal.common.assertion.RegexUtils;
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.regex.Pattern;
@@ -12,7 +12,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertRegul
 public record Major(
         @JsonValue
         String major
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     private static final Pattern MAJOR_REGEX = Pattern.compile(RegexUtils.ALLOWED_ONLY_KOR_N_ENG.getRegex());
 

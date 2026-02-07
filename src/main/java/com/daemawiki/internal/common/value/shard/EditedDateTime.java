@@ -1,8 +1,8 @@
-package com.daemawiki.internal.core.domain.model.value.shard.date;
+package com.daemawiki.internal.common.value.shard;
 
-import com.daemawiki.internal.core.domain.model.primitive.shard.date.CreatedDateTime;
-import com.daemawiki.internal.core.domain.model.primitive.shard.date.LastModifiedDateTime;
-import com.daemawiki.internal.core.domain.model.value.ValueObject;
+import com.daemawiki.internal.common.primitive.shard.CreatedDateTime;
+import com.daemawiki.internal.common.primitive.shard.LastModifiedDateTime;
+import com.daemawiki.internal.common.value.ValueObject;
 
 import java.time.LocalDateTime;
 

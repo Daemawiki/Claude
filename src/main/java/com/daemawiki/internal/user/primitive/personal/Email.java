@@ -1,6 +1,6 @@
 package com.daemawiki.internal.user.primitive.personal;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.regex.Pattern;
@@ -12,7 +12,7 @@ import static com.daemawiki.internal.common.assertion.RegexUtils.DSM_EMAIL;
 public record Email(
         @JsonValue
         String email
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     private static final Pattern DSM_EMAIL_REGEX = Pattern.compile(DSM_EMAIL.getRegex());
 

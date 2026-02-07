@@ -1,6 +1,6 @@
 package com.daemawiki.internal.user.primitive.student;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgumentNotNull;
@@ -8,7 +8,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgum
 public record StudentNumber(
         @JsonValue
         Integer studentNumber
-) implements DomainPrimitive.IntegerDP {
+) implements DomainPrimitive<Integer> {
 
     public StudentNumber {
         assertArgumentNotNull(studentNumber, "학생 번호가 입력되지 않았습니다.");

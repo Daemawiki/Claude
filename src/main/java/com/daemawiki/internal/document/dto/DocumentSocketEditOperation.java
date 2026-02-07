@@ -1,8 +1,8 @@
 package com.daemawiki.internal.document.dto;
 
 import com.daemawiki.internal.document.primitive.DocumentId;
-import com.daemawiki.internal.core.domain.model.primitive.shard.ElementId;
-import com.daemawiki.internal.core.domain.model.primitive.shard.edit.OperationType;
+import com.daemawiki.internal.common.primitive.shard.ElementId;
+import com.daemawiki.internal.common.primitive.shard.OperationType;
 import com.daemawiki.internal.user.primitive.personal.Name;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

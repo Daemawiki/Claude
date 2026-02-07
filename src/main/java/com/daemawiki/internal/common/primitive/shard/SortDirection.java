@@ -1,4 +1,4 @@
-package com.daemawiki.internal.core.domain.model.primitive.shard.paging;
+package com.daemawiki.internal.common.primitive.shard;
 
 public enum SortDirection {
 

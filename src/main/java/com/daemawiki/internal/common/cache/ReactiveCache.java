@@ -1,6 +1,6 @@
 package com.daemawiki.internal.common.cache;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import reactor.core.publisher.Mono;
 
 public interface ReactiveCache<K extends DomainPrimitive, V> {

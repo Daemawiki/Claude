@@ -5,7 +5,7 @@ import com.daemawiki.internal.user.primitive.UserId;
 import com.daemawiki.internal.user.primitive.personal.Email;
 import com.daemawiki.internal.user.primitive.personal.Generation;
 import com.daemawiki.internal.user.primitive.personal.Major;
-import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest;
+import com.daemawiki.internal.common.value.shard.PagingRequest;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

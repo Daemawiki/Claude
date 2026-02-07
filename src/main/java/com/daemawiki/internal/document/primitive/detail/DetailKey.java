@@ -1,6 +1,6 @@
 package com.daemawiki.internal.document.primitive.detail;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgumentNotEmpty;
@@ -8,7 +8,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgum
 public record DetailKey(
         @JsonValue
         String detailKey
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     public DetailKey {
         assertArgumentNotEmpty(detailKey, "키가 입력되지 않았습니다");

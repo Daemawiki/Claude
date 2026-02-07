@@ -1,7 +1,7 @@
 package com.daemawiki.internal.mail.primitive;
 
 import com.daemawiki.internal.common.random.AuthCodeGenerator;
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgumentNotEmpty;
@@ -9,7 +9,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgum
 public record AuthCode(
         @JsonValue
         String authCode
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     public AuthCode {
         assertArgumentNotEmpty(authCode, "인증 코드가 입력되지 않았습니다.");

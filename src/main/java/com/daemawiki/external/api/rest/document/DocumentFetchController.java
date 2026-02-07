@@ -1,11 +1,11 @@
 package com.daemawiki.external.api.rest.document;
 
 import com.daemawiki.internal.document.primitive.DocumentId;
-import com.daemawiki.internal.core.domain.model.primitive.shard.search.SearchText;
+import com.daemawiki.internal.common.primitive.shard.SearchText;
 import com.daemawiki.internal.document.DocumentFetchUseCase;
 import com.daemawiki.external.api.annotation.DocumentsRestApi;
-import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest;
-import com.daemawiki.internal.core.domain.model.value.shard.search.SearchResponse;
+import com.daemawiki.internal.common.value.shard.PagingRequest;
+import com.daemawiki.internal.common.value.shard.SearchResponse;
 import com.daemawiki.external.api.rest.document.dto.DocumentHalfResponse;
 import com.daemawiki.external.api.rest.document.dto.DocumentFullResponse;
 import lombok.RequiredArgsConstructor;

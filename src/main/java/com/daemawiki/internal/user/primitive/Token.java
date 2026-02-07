@@ -1,6 +1,6 @@
 package com.daemawiki.internal.user.primitive;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgumentNotEmpty;
@@ -8,7 +8,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgum
 public record Token(
         @JsonValue
         String token
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     public Token {
         assertArgumentNotEmpty(token, "토큰이 입력되지 않았습니다.");

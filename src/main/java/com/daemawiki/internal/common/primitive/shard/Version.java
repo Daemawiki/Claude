@@ -1,6 +1,6 @@
-package com.daemawiki.internal.core.domain.model.primitive.shard.info;
+package com.daemawiki.internal.common.primitive.shard;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgumentNotNull;
@@ -8,7 +8,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgum
 public record Version(
         @JsonValue
         Long version
-) implements DomainPrimitive.LongDP {
+) implements DomainPrimitive<Long> {
 
     public Version {
         assertArgumentNotNull(version, "버전이 입력되지 않았습니다");

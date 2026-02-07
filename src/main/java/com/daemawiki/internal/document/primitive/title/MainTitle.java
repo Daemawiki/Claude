@@ -1,6 +1,6 @@
 package com.daemawiki.internal.document.primitive.title;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -10,7 +10,7 @@ public record MainTitle(
         @JsonValue
         @JsonProperty("main")
         String mainTitle
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     public MainTitle {
         assertArgumentNotEmpty(mainTitle, "문서의 제목이 입력되지 않았습니다");

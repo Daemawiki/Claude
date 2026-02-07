@@ -2,8 +2,8 @@ package com.daemawiki.internal.document.repository;
 
 import com.daemawiki.internal.document.dto.DocumentInternalDTO;
 import com.daemawiki.internal.document.primitive.DocumentId;
-import com.daemawiki.internal.core.domain.model.primitive.shard.search.SearchText;
-import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest;
+import com.daemawiki.internal.common.primitive.shard.SearchText;
+import com.daemawiki.internal.common.value.shard.PagingRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;

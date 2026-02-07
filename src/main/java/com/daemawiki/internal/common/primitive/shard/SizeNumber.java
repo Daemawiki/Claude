@@ -1,6 +1,6 @@
-package com.daemawiki.internal.core.domain.model.primitive.shard.paging;
+package com.daemawiki.internal.common.primitive.shard;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -8,7 +8,7 @@ public record SizeNumber(
         @JsonValue
         @JsonProperty("size")
         Integer sizeNumber
-) implements DomainPrimitive.IntegerDP {
+) implements DomainPrimitive<Integer> {
 
     public SizeNumber {
         if (sizeNumber == null) {

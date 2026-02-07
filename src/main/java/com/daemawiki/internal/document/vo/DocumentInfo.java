@@ -1,8 +1,8 @@
 package com.daemawiki.internal.document.vo;
 
-import com.daemawiki.internal.core.domain.model.primitive.shard.info.Version;
-import com.daemawiki.internal.core.domain.model.primitive.shard.info.ViewCount;
-import com.daemawiki.internal.core.domain.model.value.ValueObject;
+import com.daemawiki.internal.common.primitive.shard.Version;
+import com.daemawiki.internal.common.primitive.shard.ViewCount;
+import com.daemawiki.internal.common.value.ValueObject;
 
 public record DocumentInfo(
         ViewCount viewCount,

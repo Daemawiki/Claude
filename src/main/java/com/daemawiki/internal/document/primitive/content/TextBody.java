@@ -1,6 +1,6 @@
 package com.daemawiki.internal.document.primitive.content;
 
-import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;
+import com.daemawiki.internal.common.primitive.DomainPrimitive;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgumentNotNull;
@@ -8,7 +8,7 @@ import static com.daemawiki.internal.common.assertion.AssertionUtils.assertArgum
 public record TextBody(
         @JsonValue
         String textBody
-) implements DomainPrimitive.StringDP {
+) implements DomainPrimitive<String> {
 
     public TextBody {
         assertArgumentNotNull(textBody, "문서의 내용이 입력되지 않았습니다");

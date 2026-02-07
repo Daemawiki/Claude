@@ -5,7 +5,7 @@ import com.daemawiki.internal.user.primitive.personal.Email;
 import com.daemawiki.internal.user.primitive.personal.Generation;
 import com.daemawiki.internal.user.primitive.personal.Major;
 import com.daemawiki.internal.user.primitive.personal.Name;
-import com.daemawiki.internal.core.domain.model.value.ValueObject;
+import com.daemawiki.internal.common.value.ValueObject;
 
 public record PersonalData(
         Name name,

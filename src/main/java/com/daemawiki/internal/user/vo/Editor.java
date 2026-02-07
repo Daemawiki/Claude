@@ -2,7 +2,7 @@ package com.daemawiki.internal.user.vo;
 
 import com.daemawiki.internal.user.primitive.UserId;
 import com.daemawiki.internal.user.primitive.personal.Name;
-import com.daemawiki.internal.core.domain.model.value.ValueObject;
+import com.daemawiki.internal.common.value.ValueObject;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 
