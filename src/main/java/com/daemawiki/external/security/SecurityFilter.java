@@ -1,7 +1,7 @@
 package com.daemawiki.external.security;
 
 import com.daemawiki.external.exception.ExceptionResponse;
-import com.daemawiki.external.security.paseto.TokenUtils;
+import com.daemawiki.external.security.token.TokenUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.paseto.jpaseto.PasetoException;

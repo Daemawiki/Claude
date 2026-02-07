@@ -1,8 +1,8 @@
 package com.daemawiki.internal.user.service;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
-import com.daemawiki.external.security.paseto.Tokenizer;
-import com.daemawiki.external.web.rest.auth.dto.LoginResponse;
+import com.daemawiki.external.security.token.Tokenizer;
+import com.daemawiki.external.api.rest.auth.dto.LoginResponse;
 import com.daemawiki.internal.user.dto.LoginDTO;
 import com.daemawiki.internal.user.dto.UserInternalDTO;
 import com.daemawiki.internal.user.primitive.Password;
