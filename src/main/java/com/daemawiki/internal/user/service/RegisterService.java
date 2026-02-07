@@ -8,7 +8,7 @@ import com.daemawiki.internal.user.primitive.UserRole;
 import com.daemawiki.internal.user.primitive.personal.Email;
 import com.daemawiki.internal.user.RegisterUseCase;
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
-import com.daemawiki.internal.data.repository.mail.AuthMailRepository;
+import com.daemawiki.internal.mail.repository.AuthMailRepository;
 import com.daemawiki.internal.user.repository.ManagerRepository;
 import com.daemawiki.internal.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.daemawiki.internal.core.domain.model.event.mail;
+package com.daemawiki.internal.mail.event;
 
 import com.daemawiki.internal.user.primitive.personal.Email;
 

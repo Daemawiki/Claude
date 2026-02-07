@@ -1,8 +1,8 @@
-package com.daemawiki.internal.data.repository.mail.impl;
+package com.daemawiki.internal.mail.repository.impl;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
 import com.daemawiki.internal.user.primitive.personal.Email;
-import com.daemawiki.internal.data.repository.mail.AuthMailRepository;
+import com.daemawiki.internal.mail.repository.AuthMailRepository;
 import com.daemawiki.external.database.redis.RedisKey;
 import com.daemawiki.external.database.redis.storage.RedisOperation;
 import lombok.RequiredArgsConstructor;

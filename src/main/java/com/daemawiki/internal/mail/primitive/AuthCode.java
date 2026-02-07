@@ -1,4 +1,4 @@
-package com.daemawiki.internal.core.domain.model.primitive.mail;
+package com.daemawiki.internal.mail.primitive;
 
 import com.daemawiki.internal.common.random.AuthCodeGenerator;
 import com.daemawiki.internal.core.domain.model.primitive.DomainPrimitive;

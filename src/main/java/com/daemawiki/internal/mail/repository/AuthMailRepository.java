@@ -1,4 +1,4 @@
-package com.daemawiki.internal.data.repository.mail;
+package com.daemawiki.internal.mail.repository;
 
 import com.daemawiki.internal.user.primitive.personal.Email;
 import reactor.core.publisher.Mono;

@@ -1,4 +1,4 @@
-package com.daemawiki.internal.data.property;
+package com.daemawiki.internal.mail.property;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

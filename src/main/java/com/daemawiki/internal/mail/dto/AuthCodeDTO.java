@@ -1,11 +1,11 @@
-package com.daemawiki.internal.core.domain.model.dto.mail;
+package com.daemawiki.internal.mail.dto;
 
-import com.daemawiki.internal.core.domain.model.primitive.mail.AuthCode;
+import com.daemawiki.internal.mail.primitive.AuthCode;
 import com.daemawiki.internal.user.primitive.personal.Email;
 
 public record AuthCodeDTO(
         Email email,
-        AuthCode authCode
+        com.daemawiki.internal.mail.primitive.AuthCode authCode
 ) {
 
     public static AuthCodeDTO create(

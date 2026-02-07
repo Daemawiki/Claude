@@ -1,9 +1,9 @@
-package com.daemawiki.internal.core.domain.service.mail;
+package com.daemawiki.internal.mail.service;
 
-import com.daemawiki.internal.core.domain.model.event.mail.MailSendEvent;
-import com.daemawiki.internal.core.usecase.mail.MailSendUseCase;
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
-import com.daemawiki.internal.core.domain.model.primitive.mail.MailType;
+import com.daemawiki.internal.mail.MailSendUseCase;
+import com.daemawiki.internal.mail.event.MailSendEvent;
+import com.daemawiki.internal.mail.primitive.MailType;
 import com.daemawiki.internal.user.primitive.personal.Email;
 import com.daemawiki.internal.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

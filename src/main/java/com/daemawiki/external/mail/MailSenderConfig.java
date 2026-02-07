@@ -1,6 +1,6 @@
 package com.daemawiki.external.mail;
 
-import com.daemawiki.internal.data.property.MailSenderProperties;
+import com.daemawiki.internal.mail.property.MailSenderProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,11 +1,11 @@
-package com.daemawiki.internal.data.repository.mail.impl;
+package com.daemawiki.internal.mail.repository.impl;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
-import com.daemawiki.internal.core.domain.model.dto.mail.AuthCodeDTO;
-import com.daemawiki.internal.core.domain.model.primitive.mail.AuthCode;
-import com.daemawiki.internal.data.repository.mail.AuthCodeRepository;
 import com.daemawiki.external.database.redis.RedisKey;
 import com.daemawiki.external.database.redis.storage.RedisOperation;
+import com.daemawiki.internal.mail.dto.AuthCodeDTO;
+import com.daemawiki.internal.mail.primitive.AuthCode;
+import com.daemawiki.internal.mail.repository.AuthCodeRepository;
 import com.daemawiki.internal.user.primitive.personal.Email;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

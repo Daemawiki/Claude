@@ -1,6 +1,6 @@
-package com.daemawiki.internal.core.usecase.mail;
+package com.daemawiki.internal.mail;
 
-import com.daemawiki.internal.core.domain.model.primitive.mail.AuthCode;
+import com.daemawiki.internal.mail.primitive.AuthCode;
 import com.daemawiki.internal.user.primitive.personal.Email;
 import reactor.core.publisher.Mono;
 

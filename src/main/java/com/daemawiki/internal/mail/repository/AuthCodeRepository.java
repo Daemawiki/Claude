@@ -1,6 +1,6 @@
-package com.daemawiki.internal.data.repository.mail;
+package com.daemawiki.internal.mail.repository;
 
-import com.daemawiki.internal.core.domain.model.dto.mail.AuthCodeDTO;
+import com.daemawiki.internal.mail.dto.AuthCodeDTO;
 import com.daemawiki.internal.user.primitive.personal.Email;
 import reactor.core.publisher.Mono;
 

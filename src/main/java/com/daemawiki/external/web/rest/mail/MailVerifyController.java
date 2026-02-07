@@ -1,9 +1,9 @@
 package com.daemawiki.external.web.rest.mail;
 
 import com.daemawiki.external.web.annotation.ui.MailRestApi;
-import com.daemawiki.internal.core.domain.model.primitive.mail.AuthCode;
+import com.daemawiki.internal.mail.MailVerifyUseCase;
+import com.daemawiki.internal.mail.primitive.AuthCode;
 import com.daemawiki.internal.user.primitive.personal.Email;
-import com.daemawiki.internal.core.usecase.mail.MailVerifyUseCase;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

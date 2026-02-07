@@ -1,11 +1,11 @@
-package com.daemawiki.internal.core.domain.service.mail;
+package com.daemawiki.internal.mail.service;
 
 import com.daemawiki.external.exception.custom.CustomExceptionFactory;
-import com.daemawiki.internal.core.domain.model.primitive.mail.AuthCode;
+import com.daemawiki.internal.mail.MailVerifyUseCase;
+import com.daemawiki.internal.mail.primitive.AuthCode;
+import com.daemawiki.internal.mail.repository.AuthCodeRepository;
+import com.daemawiki.internal.mail.repository.AuthMailRepository;
 import com.daemawiki.internal.user.primitive.personal.Email;
-import com.daemawiki.internal.core.usecase.mail.MailVerifyUseCase;
-import com.daemawiki.internal.data.repository.mail.AuthCodeRepository;
-import com.daemawiki.internal.data.repository.mail.AuthMailRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
