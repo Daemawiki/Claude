@@ -3,7 +3,7 @@ package com.daemawiki.internal.core.domain.service.auth;
 import com.daemawiki.internal.core.domain.model.dto.auth.RegisterDTO;
 import com.daemawiki.internal.core.domain.model.dto.manager.ManagerInternalDTO;
 import com.daemawiki.internal.core.domain.model.dto.user.UserInternalDTO;
-import com.daemawiki.internal.core.domain.model.event.document.DocumentCreateByUserEvent;
+import com.daemawiki.internal.document.event.DocumentCreateByUserEvent;
 import com.daemawiki.internal.core.domain.model.primitive.user.UserRole;
 import com.daemawiki.internal.core.domain.model.primitive.user.personal.Email;
 import com.daemawiki.internal.core.usecase.auth.RegisterUseCase;

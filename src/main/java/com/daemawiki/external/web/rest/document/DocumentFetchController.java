@@ -1,8 +1,8 @@
 package com.daemawiki.external.web.rest.document;
 
-import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
+import com.daemawiki.internal.document.primitive.DocumentId;
 import com.daemawiki.internal.core.domain.model.primitive.shard.search.SearchText;
-import com.daemawiki.internal.core.usecase.document.DocumentFetchUseCase;
+import com.daemawiki.internal.document.DocumentFetchUseCase;
 import com.daemawiki.external.web.annotation.ui.DocumentsRestApi;
 import com.daemawiki.internal.core.domain.model.value.shard.paging.PagingRequest;
 import com.daemawiki.internal.core.domain.model.value.shard.search.SearchResponse;

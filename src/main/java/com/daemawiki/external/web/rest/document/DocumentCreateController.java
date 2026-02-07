@@ -1,7 +1,7 @@
 package com.daemawiki.external.web.rest.document;
 
-import com.daemawiki.internal.core.domain.model.dto.document.DocumentInternalDTO;
-import com.daemawiki.internal.core.usecase.document.DocumentCreateUseCase;
+import com.daemawiki.internal.document.dto.DocumentInternalDTO;
+import com.daemawiki.internal.document.DocumentCreateUseCase;
 import com.daemawiki.external.web.annotation.ui.DocumentsRestApi;
 import com.daemawiki.external.web.rest.document.dto.form.DocumentCreateForm;
 import lombok.RequiredArgsConstructor;

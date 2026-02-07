@@ -3,12 +3,11 @@ package com.daemawiki.external.web.rest.document;
 import com.daemawiki.external.web.rest.document.dto.DocumentFullResponse;
 import com.daemawiki.external.web.rest.document.dto.DocumentHalfResponse;
 import com.daemawiki.external.web.rest.document.dto.form.DocumentCreateForm;
-import com.daemawiki.internal.core.domain.model.dto.document.DocumentInternalDTO;
+import com.daemawiki.internal.document.dto.DocumentInternalDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 import static org.mapstruct.ReportingPolicy.IGNORE;

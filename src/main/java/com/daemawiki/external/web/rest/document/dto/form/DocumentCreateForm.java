@@ -1,8 +1,8 @@
 package com.daemawiki.external.web.rest.document.dto.form;
 
-import com.daemawiki.internal.core.domain.model.primitive.document.DocumentCategory;
-import com.daemawiki.internal.core.domain.model.primitive.document.DocumentType;
-import com.daemawiki.internal.core.domain.model.value.document.DocumentTitle;
+import com.daemawiki.internal.document.primitive.DocumentCategory;
+import com.daemawiki.internal.document.primitive.DocumentType;
+import com.daemawiki.internal.document.vo.DocumentTitle;
 
 import java.util.List;
 

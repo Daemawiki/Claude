@@ -1,11 +1,11 @@
 package com.daemawiki.external.web.rest.document.dto;
 
-import com.daemawiki.internal.core.domain.model.primitive.document.DocumentCategory;
-import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
-import com.daemawiki.internal.core.domain.model.primitive.document.DocumentType;
-import com.daemawiki.internal.core.domain.model.primitive.document.content.TextBody;
-import com.daemawiki.internal.core.domain.model.primitive.document.title.MainTitle;
-import com.daemawiki.internal.core.domain.model.value.document.DocumentInfo;
+import com.daemawiki.internal.document.primitive.DocumentCategory;
+import com.daemawiki.internal.document.primitive.DocumentId;
+import com.daemawiki.internal.document.primitive.DocumentType;
+import com.daemawiki.internal.document.primitive.content.TextBody;
+import com.daemawiki.internal.document.primitive.title.MainTitle;
+import com.daemawiki.internal.document.vo.DocumentInfo;
 import com.daemawiki.internal.core.domain.model.value.shard.date.EditedDateTime;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

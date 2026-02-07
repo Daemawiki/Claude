@@ -1,7 +1,7 @@
 package com.daemawiki.external.web.rest.document;
 
-import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
-import com.daemawiki.internal.core.usecase.document.DocumentRemoveUseCase;
+import com.daemawiki.internal.document.primitive.DocumentId;
+import com.daemawiki.internal.document.DocumentRemoveUseCase;
 import com.daemawiki.external.web.annotation.ui.DocumentsRestApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;

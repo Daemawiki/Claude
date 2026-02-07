@@ -1,8 +1,8 @@
 package com.daemawiki.external.rsocket.document;
 
-import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
-import com.daemawiki.internal.core.usecase.document.DocumentSocketEditingUseCase;
-import com.daemawiki.internal.core.domain.model.dto.document.DocumentSocketEditOperation;
+import com.daemawiki.internal.document.primitive.DocumentId;
+import com.daemawiki.internal.document.DocumentSocketEditingUseCase;
+import com.daemawiki.internal.document.dto.DocumentSocketEditOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;

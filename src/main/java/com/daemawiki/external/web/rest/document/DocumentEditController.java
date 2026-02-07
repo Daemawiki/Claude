@@ -2,8 +2,8 @@ package com.daemawiki.external.web.rest.document;
 
 import com.daemawiki.external.web.rest.document.dto.form.DocumentEditEditorSetForm;
 import com.daemawiki.external.web.rest.document.dto.form.DocumentEditTitleForm;
-import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
-import com.daemawiki.internal.core.usecase.document.DocumentEditUseCase;
+import com.daemawiki.internal.document.primitive.DocumentId;
+import com.daemawiki.internal.document.DocumentEditUseCase;
 import com.daemawiki.external.web.annotation.ui.DocumentsRestApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

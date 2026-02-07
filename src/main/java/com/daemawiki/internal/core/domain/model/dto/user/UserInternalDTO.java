@@ -2,7 +2,7 @@ package com.daemawiki.internal.core.domain.model.dto.user;
 
 import com.daemawiki.internal.core.domain.model.dto.auth.RegisterDTO;
 import com.daemawiki.internal.core.domain.model.primitive.auth.SecuredPassword;
-import com.daemawiki.internal.core.domain.model.primitive.document.DocumentId;
+import com.daemawiki.internal.document.primitive.DocumentId;
 import com.daemawiki.internal.core.domain.model.primitive.user.UserRole;
 import com.daemawiki.internal.core.domain.model.primitive.user.UserId;
 import com.daemawiki.internal.core.domain.model.primitive.user.RegistrationDate;
